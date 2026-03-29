@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-serif), ui-serif, Georgia, serif;
+  
+  /* Custom Elegant NGO Palette */
+  --color-ikigai-bg: #F9F8F6; /* Soft warm white */
+  --color-ikigai-dark: #2A2A26; /* Soft black / dark olive */
+  --color-ikigai-accent: #A64D3A; /* Deep warm terracotta */
+  --color-ikigai-accent-hover: #8A3E2E;
+  --color-ikigai-muted: #6B6B63; /* Muted olive/gray */
+  --color-ikigai-surface: #F0EFEA; /* Slightly darker for contrast */
+}
+
+body {
+  background-color: var(--color-ikigai-bg);
+  color: var(--color-ikigai-dark);
+}
+
+.pill-image {
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+.arch-image {
+  border-top-left-radius: 1000px;
+  border-top-right-radius: 1000px;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  object-fit: cover;
+}
+
+.soft-image {
+  border-radius: 3rem;
+  object-fit: cover;
+}
+
+.rounded-square-image {
+  border-radius: 1.5rem;
+  object-fit: cover;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
