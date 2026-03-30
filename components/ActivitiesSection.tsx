@@ -6,12 +6,10 @@ import Image from 'next/image';
 import { Maximize2 } from 'lucide-react';
 import { X } from 'lucide-react';
 import { Button } from '@/components/Button';
+import Carousel from './carousel/carousel';
 
 export default function ActivitiesSection() {
-  const [filter, setFilter] = useState('All');
   const [selectedImage, setSelectedImage] = useState<null | { title: string; image: string; description: string; category: string }>(null);
-
-  const categories = ['All', 'Education', 'Arts', 'Community', 'Technology', 'Wellness'];
 
   const activities = [
     { title: 'Interactive Classrooms', image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2132&auto=format&fit=crop', description: 'Our volunteers use modern teaching methods to keep students engaged and curious.', category: 'Education' },
@@ -28,7 +26,7 @@ export default function ActivitiesSection() {
     { title: 'Outdoor Sports', image: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=2070&auto=format&fit=crop', description: 'Building character and physical health through organized team sports and play.', category: 'Wellness' }
   ];
 
-  const filteredActivities = filter === 'All' ? activities : activities.filter(a => a.category === filter);
+  const filteredActivities = activities;
 
   return (
     <section id="activities" className="py-32 bg-ikigai-bg scroll-mt-20" aria-labelledby="activities-title">
@@ -38,29 +36,27 @@ export default function ActivitiesSection() {
           <div className="flex items-center gap-4 text-ikigai-muted"><span className="text-xs uppercase tracking-widest font-bold">Activity Gallery</span></div>
         </div>
 
-        <div className="flex flex-wrap gap-4 mb-12 border-b border-ikigai-dark/5 pb-8">
-          {categories.map(cat => (
-            <Button key={cat} onClick={() => setFilter(cat)} variant={filter === cat ? 'primary' : 'outline'} size="sm" className="rounded-full text-sm font-medium">
-              {cat}
-            </Button>
-          ))}
-        </div>
-
-        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          <AnimatePresence mode="popLayout">
-            {filteredActivities.map((activity) => (
-              <motion.div layout key={activity.title} initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} transition={{ duration: 0.4, ease: 'easeOut' }} className="group cursor-pointer" onClick={() => setSelectedImage(activity)}>
-                <div className="relative aspect-square w-full rounded-square-image overflow-hidden mb-4 shadow-lg group-hover:shadow-2xl transition-all duration-500">
-                  <Image src={activity.image} alt={activity.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" referrerPolicy="no-referrer" />
-                  <div className="absolute inset-0 bg-ikigai-dark/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white transform scale-50 group-hover:scale-100 transition-transform duration-500"><Maximize2 size={24} /></div></div>
-                  <div className="absolute top-4 left-4"><span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-[10px] font-bold uppercase tracking-widest text-ikigai-accent rounded-full shadow-sm">{activity.category}</span></div>
+        <div className="mb-12">
+          <Carousel
+            items={filteredActivities.slice(0, 6)}
+            autoScroll={false}
+            itemsPerPage={{ mobile: 1, tablet: 2, desktop: 4 }}
+            renderItem={(activity: any, index: number) => (
+              <div className="group cursor-pointer" onClick={() => setSelectedImage(activity)}>
+                <div className="relative w-full rounded-2xl overflow-hidden mb-3 shadow-sm transition-shadow duration-300">
+                  <div className="w-full aspect-[3/2] md:aspect-[4/3] overflow-hidden rounded-2xl">
+                    <Image src={activity.image} alt={activity.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" referrerPolicy="no-referrer" />
+                  </div>
+                  <div className="absolute top-3 left-3">
+                    <span className="px-2 py-1 bg-white/90 backdrop-blur-sm text-[10px] font-bold uppercase tracking-widest text-ikigai-accent rounded-full shadow-sm">{activity.category}</span>
+                  </div>
                 </div>
-                <h3 className="text-lg font-serif text-ikigai-dark group-hover:text-ikigai-accent transition-colors">{activity.title}</h3>
-                <p className="text-sm text-ikigai-muted font-light line-clamp-1 mt-1">{activity.description}</p>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
+                <h3 className="text-base font-serif text-ikigai-dark group-hover:text-ikigai-accent transition-colors">{activity.title}</h3>
+                <p className="text-sm text-ikigai-muted font-light line-clamp-2 mt-1">{activity.description}</p>
+              </div>
+            )}
+          />
+        </div>
       </motion.div>
 
       <AnimatePresence>

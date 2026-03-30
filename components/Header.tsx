@@ -73,9 +73,8 @@ export default function Header() {
                 <p className="text-[10px] uppercase tracking-[0.4em] text-ikigai-muted mb-6 font-bold">Connect with us</p>
                 <div className="flex justify-center gap-10">
                   {socialLinks.map((social) => (
-                    <a key={social.name} href={social.href} aria-label={`Follow us on ${social.name}`} className="text-ikigai-dark/40 hover:text-ikigai-accent transition-all hover:scale-125 hover:-translate-y-1">
-                      {/* icon injected by consumer since SiteConfig leaves icon null */}
-                      <span className="w-6 h-6 inline-block" />
+                    <a key={social.name} href={social.href} aria-label={`Follow us on ${social.name}`} className="text-ikigai-dark/40 hover:text-ikigai-accent transition-all hover:scale-125">
+                      {social.icon}
                     </a>
                   ))}
                 </div>

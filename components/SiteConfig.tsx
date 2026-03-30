@@ -5,11 +5,13 @@ export const navItems = [
   { name: 'Testimonials', href: '#testimonials' },
 ];
 
+import { Instagram, Twitter, Facebook, Linkedin } from 'lucide-react';
+
 export const socialLinks = [
-  { name: 'Instagram', icon: null, href: '#' },
-  { name: 'Twitter', icon: null, href: '#' },
-  { name: 'Facebook', icon: null, href: '#' },
-  { name: 'LinkedIn', icon: null, href: '#' },
+  { name: 'Instagram', icon: <Instagram size={16} />, href: '#' },
+  { name: 'Twitter', icon: <Twitter size={16} />, href: '#' },
+  { name: 'Facebook', icon: <Facebook size={16} />, href: '#' },
+  { name: 'LinkedIn', icon: <Linkedin size={16} />, href: '#' },
 ];
 
 export const companyPhone = '+1234567890';

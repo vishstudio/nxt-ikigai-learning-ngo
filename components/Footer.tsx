@@ -18,8 +18,8 @@ export default function Footer() {
             <p className="text-ikigai-bg/60 font-light leading-relaxed max-w-xs">Nurturing potential and providing free education to those who need it most. Every child deserves a reason for being.</p>
             <div className="flex gap-5">
               {socialLinks.map((social) => (
-                <a key={social.name} href={social.href} className="w-10 h-10 rounded-full border border-ikigai-bg/10 flex items-center justify-center hover:bg-ikigai-accent hover:border-ikigai-accent transition-all text-ikigai-bg/80 hover:text-white hover:scale-110 hover:-translate-y-1" aria-label={social.name}>
-                  <span className="w-4 h-4 inline-block" />
+                <a key={social.name} href={social.href} className="w-10 h-10 rounded-full border border-ikigai-bg/10 flex items-center justify-center hover:bg-ikigai-accent hover:border-ikigai-accent transition-all text-ikigai-bg/80 hover:text-white" aria-label={social.name}>
+                  {social.icon}
                 </a>
               ))}
             </div>
