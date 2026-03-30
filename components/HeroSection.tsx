@@ -17,7 +17,7 @@ export default function HeroSection() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center w-full">
           <motion.div initial={{ opacity: 0, x: -60 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }} className="z-10">
-            <h1 id="hero-title" className="text-6xl md:text-[7rem] lg:text-[8rem] xl:text-[9rem] font-serif leading-[0.8] text-ikigai-dark mb-10 tracking-tighter">Nurturing <br/><span className="italic text-ikigai-accent">potential,</span><br/>one child<br/>at a time.</h1>
+            <h1 id="hero-title" className="text-6xl md:text-[7rem] lg:text-[8rem] xl:text-[9rem] font-serif leading-[0.8] text-ikigai-dark mb-10 tracking-tighter">Nurturing <br /><span className="italic text-ikigai-accent">potential,</span><br />one child<br />at a time.</h1>
             <p className="text-lg md:text-xl text-ikigai-muted font-light max-w-lg mb-14 leading-relaxed">We provide free, high-quality education to children facing financial hardships. Because every child deserves the chance to find their purpose.</p>
             <div className="flex flex-wrap gap-10 items-center">
               <Button href="#director-call">Speak with our Director</Button>

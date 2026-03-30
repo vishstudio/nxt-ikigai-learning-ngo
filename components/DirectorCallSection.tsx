@@ -24,7 +24,7 @@ export default function DirectorCallSection() {
             <p className="text-lg font-light text-ikigai-bg/70 leading-relaxed mb-12">I invite you to a personal conversation. Whether you want to volunteer, donate, or simply learn more about our mission, I want to hear from you. Let&apos;s discuss how we can change lives together.</p>
             <div className="flex items-center gap-6">
               <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: "easeOut" }} className="w-20 h-24 rounded-square-image overflow-hidden relative border border-ikigai-bg/20 shadow-lg">
-                 <Image src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop" alt="Sarah Jenkins, Executive Director of Ikigai" fill className="object-cover" referrerPolicy="no-referrer" />
+                <Image src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop" alt="Sarah Jenkins, Executive Director of Ikigai" fill className="object-cover" referrerPolicy="no-referrer" />
               </motion.div>
               <div>
                 <p className="font-serif text-3xl text-ikigai-bg">Sarah Jenkins</p>
@@ -44,11 +44,11 @@ export default function DirectorCallSection() {
                   <span className="uppercase tracking-[0.3em] text-[10px] font-black opacity-80 mb-1">Primary Action</span>
                   <span className="uppercase tracking-[0.2em] text-sm font-black">{isBooking ? 'Booking System Loading...' : 'Find a Time'}</span>
                 </div>
-                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors"><ArrowRight className="w-6 h-6 transform group-hover:translate-x-1 transition-transform" aria-hidden="true"/></div>
+                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors"><ArrowRight className="w-6 h-6 transform group-hover:translate-x-1 transition-transform" aria-hidden="true" /></div>
               </Button>
               {isBooking && <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="text-center text-xs text-ikigai-accent font-bold">Our booking system is currently being updated. Please email Sarah directly below.</motion.p>}
 
-              <p className="text-center text-sm text-ikigai-muted pt-4">Or email directly at <br/><a href="mailto:sarah@ikigaingo.org" className="text-ikigai-accent hover:underline font-black mt-2 inline-block tracking-wider">sarah@ikigaingo.org</a></p>
+              <p className="text-center text-sm text-ikigai-muted pt-4">Or email directly at <br /><a href="mailto:sarah@ikigaingo.org" className="text-ikigai-accent hover:underline font-black mt-2 inline-block tracking-wider">sarah@ikigaingo.org</a></p>
             </div>
           </div>
         </div>

@@ -40,7 +40,7 @@ export default function Footer() {
             <ul className="space-y-4 text-ikigai-bg/70 font-light">
               <li>hello@ikigaingo.org</li>
               <li>+1 (555) 123-4567</li>
-              <li>123 Purpose Way<br/>San Francisco, CA 94103</li>
+              <li>123 Purpose Way<br />San Francisco, CA 94103</li>
             </ul>
           </div>
 
