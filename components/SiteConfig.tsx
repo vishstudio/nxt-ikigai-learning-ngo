@@ -11,3 +11,6 @@ export const socialLinks = [
   { name: 'Facebook', icon: null, href: '#' },
   { name: 'LinkedIn', icon: null, href: '#' },
 ];
+
+export const primaryCta = { text: 'Get Involved', href: '#director-call' };
+export const secondaryCta = { text: 'Learn More' };

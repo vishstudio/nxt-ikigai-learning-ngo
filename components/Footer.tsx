@@ -1,8 +1,8 @@
 "use client";
 
 import { navItems, socialLinks } from './SiteConfig';
-import { Heart } from 'lucide-react';
 import { Button } from '@/components/Button';
+import Logo from './logo/logo';
 
 export default function Footer() {
   return (
@@ -10,9 +10,8 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
           <div className="space-y-8">
-            <div className="flex items-center gap-2">
-              <Heart size={24} className="text-ikigai-accent fill-ikigai-accent" aria-hidden="true" />
-              <span className="text-3xl font-serif font-bold">Ikigai.</span>
+            <div>
+              <Logo />
             </div>
             <p className="text-ikigai-bg/60 font-light leading-relaxed max-w-xs">Nurturing potential and providing free education to those who need it most. Every child deserves a reason for being.</p>
             <div className="flex gap-5">

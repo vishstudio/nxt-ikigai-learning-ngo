@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from 'motion/react';
 import { ArrowRight, Heart } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '@/components/Button';
+import { primaryCta, secondaryCta } from './SiteConfig';
 
 export default function HeroSection() {
   const containerRef = useRef<HTMLElement>(null);
@@ -19,9 +20,9 @@ export default function HeroSection() {
           <motion.div initial={{ opacity: 0, x: -60 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }} className="z-10">
             <h1 id="hero-title" className="text-6xl md:text-[7rem] lg:text-[8rem] xl:text-[9rem] font-serif leading-[0.8] text-ikigai-dark mb-10 tracking-tighter">Nurturing <br /><span className="italic text-ikigai-accent">potential,</span><br />one child<br />at a time.</h1>
             <p className="text-lg md:text-xl text-ikigai-muted font-light max-w-lg mb-14 leading-relaxed">We provide free, high-quality education to children facing financial hardships. Because every child deserves the chance to find their purpose.</p>
-            <div className="flex flex-wrap gap-10 items-center">
-              <Button href="#director-call">Speak with our Director</Button>
-              <Button href="#story" variant="link" icon={<ArrowRight size={16} />}>Discover our mission</Button>
+            <div className="flex flex-wrap gap-6 items-center">
+              <Button href={primaryCta.href}>{primaryCta.text}</Button>
+              <Button href="#story" variant="link" icon={<ArrowRight size={16} />}>{secondaryCta.text}</Button>
             </div>
           </motion.div>
 

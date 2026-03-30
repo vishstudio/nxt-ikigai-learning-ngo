@@ -5,6 +5,7 @@ import { motion } from 'motion/react';
 import Image from 'next/image';
 import { ArrowRight, X } from 'lucide-react';
 import { Button } from '@/components/Button';
+import { primaryCta } from './SiteConfig';
 
 export default function DirectorCallSection() {
   const [isBooking, setIsBooking] = useState(false);
@@ -39,10 +40,10 @@ export default function DirectorCallSection() {
             <p className="text-ikigai-muted font-light mb-10 leading-relaxed">Schedule a 15-minute conversation directly with Sarah to explore partnership and volunteer opportunities.</p>
 
             <div className="space-y-6">
-              <Button onClick={() => setIsBooking(true)} className="w-full py-6 px-10 flex justify-between items-center">
+              <Button onClick={() => setIsBooking(true)} className="w-full" size="md">
                 <div className="flex flex-col items-start">
                   <span className="uppercase tracking-[0.3em] text-[10px] font-black opacity-80 mb-1">Primary Action</span>
-                  <span className="uppercase tracking-[0.2em] text-sm font-black">{isBooking ? 'Booking System Loading...' : 'Find a Time'}</span>
+                  <span className="uppercase tracking-[0.2em] text-sm font-black">{isBooking ? 'Booking System Loading...' : primaryCta.text}</span>
                 </div>
                 <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors"><ArrowRight className="w-6 h-6 transform group-hover:translate-x-1 transition-transform" aria-hidden="true" /></div>
               </Button>

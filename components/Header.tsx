@@ -5,6 +5,7 @@ import { motion } from 'motion/react';
 import { Menu, X, Heart } from 'lucide-react';
 import { Button } from '@/components/Button';
 import { navItems, socialLinks } from './SiteConfig';
+import Logo from './logo/logo';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -16,14 +17,12 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-ikigai-bg/95 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-8'}`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          <a href="#home" className="flex-shrink-0 flex items-center gap-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ikigai-accent">
-            <Heart size={20} className="text-ikigai-accent fill-ikigai-accent" aria-hidden="true" />
-            <span className="text-2xl font-serif font-bold tracking-tight">Ikigai.</span>
-          </a>
+          <Logo />
 
           <nav className="hidden md:flex space-x-10 items-center" aria-label="Main Navigation">
             {navItems.map((item) => (
@@ -49,8 +48,7 @@ export default function Header() {
         <motion.div initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }} transition={{ type: 'spring', damping: 25, stiffness: 200 }} className="md:hidden bg-ikigai-bg fixed inset-0 z-[60] flex flex-col p-8 shadow-2xl overflow-y-auto">
           <div className="flex justify-between items-center mb-16">
             <div className="flex items-center gap-2">
-              <Heart size={20} className="text-ikigai-accent fill-ikigai-accent" aria-hidden="true" />
-              <span className="text-2xl font-serif font-bold tracking-tight">Ikigai.</span>
+              <Logo />
             </div>
             <button onClick={() => setMobileMenuOpen(false)} className="text-ikigai-dark p-2 hover:rotate-90 transition-transform duration-300" aria-label="Close menu">
               <X size={32} />
