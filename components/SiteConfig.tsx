@@ -12,5 +12,6 @@ export const socialLinks = [
   { name: 'LinkedIn', icon: null, href: '#' },
 ];
 
-export const primaryCta = { text: 'Get Involved', href: '#director-call' };
+export const companyPhone = '+1234567890';
+export const primaryCta = { text: 'Get Involved', href: `tel:${companyPhone}` };
 export const secondaryCta = { text: 'Learn More' };

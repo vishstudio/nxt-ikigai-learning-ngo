@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Menu, X, Heart } from 'lucide-react';
 import { Button } from '@/components/Button';
-import { navItems, socialLinks } from './SiteConfig';
+import { navItems, socialLinks, primaryCta } from './SiteConfig';
 import Logo from './logo/logo';
 
 export default function Header() {
@@ -33,7 +33,7 @@ export default function Header() {
           </nav>
 
           <div className="hidden md:flex">
-            <Button href="#director-call" variant="outline">Let&apos;s Talk</Button>
+            <Button href={primaryCta.href} variant="pill" size="lg">Let&apos;s Talk</Button>
           </div>
 
           <div className="md:hidden flex items-center">
@@ -66,7 +66,7 @@ export default function Header() {
 
             <div className="space-y-12 pb-12 mt-12">
               <div>
-                <Button href="#director-call" onClick={() => setMobileMenuOpen(false)} className="w-full py-6 text-xs tracking-[0.3em]">Book a Call</Button>
+                <Button href={primaryCta.href} onClick={() => setMobileMenuOpen(false)} className="w-full text-xs tracking-[0.3em]">Book a Call</Button>
               </div>
 
               <div className="flex flex-col items-center">

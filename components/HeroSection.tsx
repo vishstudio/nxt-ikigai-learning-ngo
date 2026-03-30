@@ -21,7 +21,7 @@ export default function HeroSection() {
             <h1 id="hero-title" className="text-6xl md:text-[7rem] lg:text-[8rem] xl:text-[9rem] font-serif leading-[0.8] text-ikigai-dark mb-10 tracking-tighter">Nurturing <br /><span className="italic text-ikigai-accent">potential,</span><br />one child<br />at a time.</h1>
             <p className="text-lg md:text-xl text-ikigai-muted font-light max-w-lg mb-14 leading-relaxed">We provide free, high-quality education to children facing financial hardships. Because every child deserves the chance to find their purpose.</p>
             <div className="flex flex-wrap gap-6 items-center">
-              <Button href={primaryCta.href}>{primaryCta.text}</Button>
+              <Button href={primaryCta.href} size="lg">{primaryCta.text}</Button>
               <Button href="#story" variant="link" icon={<ArrowRight size={16} />}>{secondaryCta.text}</Button>
             </div>
           </motion.div>

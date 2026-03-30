@@ -10,8 +10,10 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
           <div className="space-y-8">
-            <div>
-              <Logo />
+            <div className="flex items-center gap-2">
+              <div>
+                <Logo className='bg-white rounded-full p-2' />
+              </div>
             </div>
             <p className="text-ikigai-bg/60 font-light leading-relaxed max-w-xs">Nurturing potential and providing free education to those who need it most. Every child deserves a reason for being.</p>
             <div className="flex gap-5">
@@ -51,7 +53,10 @@ export default function Footer() {
         </div>
 
         <div className="pt-12 border-t border-ikigai-bg/10 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-ikigai-bg/40 text-[10px] uppercase tracking-[0.2em]">&copy; {new Date().getFullYear()} VISH studio. All rights reserved.</p>
+          <p className="text-ikigai-bg/40 text-[10px] uppercase tracking-[0.2em]">&copy; {new Date().getFullYear()}
+            <a
+              className='text-ikigai-accent hover:text-white transition-all'
+              href="https://www.vish.studio" target='_blank' rel="noopener noreferrer"> VISH studio</a>. All rights reserved.</p>
           <div className="flex gap-8 text-[10px] uppercase tracking-[0.2em] text-ikigai-bg/40">
             <a href="#" className="hover:text-ikigai-accent transition-colors focus-visible:text-ikigai-accent focus-visible:outline-none">Privacy Policy</a>
             <a href="#" className="hover:text-ikigai-accent transition-colors focus-visible:text-ikigai-accent focus-visible:outline-none">Terms of Service</a>

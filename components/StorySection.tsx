@@ -45,29 +45,6 @@ export default function StorySection() {
             </div>
           </div>
         </div>
-
-        <div className="mt-32 pt-32 border-t border-ikigai-dark/10">
-          <div className="max-w-4xl mx-auto">
-            <div className="relative space-y-24">
-              <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[1px] bg-ikigai-dark/10 -translate-x-1/2 hidden md:block" />
-
-              {[{ year: '2018', title: 'The Spark', description: 'IKIGAI founded with 5 passionate volunteers in a small community center.' }, { year: '2020', title: 'Digital Shift', description: 'Launched online tutoring during the pandemic, reaching children in remote areas.' }, { year: '2022', title: 'Growth', description: 'Expanded to 10 communities, supporting 300+ students with holistic care.' }, { year: '2024', title: 'Today', description: 'A thriving community of 500+ students and 50+ dedicated volunteer teachers.' }].map((milestone, index) => (
-                <motion.div key={index} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.8, delay: index * 0.1 }} className={`relative flex flex-col md:flex-row items-center gap-8 md:gap-0 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-                  <div className="w-full md:w-1/2 px-4 md:px-12">
-                    <div className={`p-8 bg-white rounded-square-image shadow-sm hover:shadow-md transition-shadow duration-500 border border-ikigai-dark/5 ${index % 2 === 0 ? 'md:text-left' : 'md:text-right'}`}>
-                      <span className="text-ikigai-accent font-serif text-3xl font-bold block mb-2">{milestone.year}</span>
-                      <h3 className="text-xl font-serif mb-3 text-ikigai-dark">{milestone.title}</h3>
-                      <p className="text-ikigai-muted font-light leading-relaxed text-base">{milestone.description}</p>
-                    </div>
-                  </div>
-
-                  <div className="absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-ikigai-accent border-4 border-ikigai-bg -translate-x-1/2 z-10 hidden md:block shadow-sm" />
-                  <div className="hidden md:block w-1/2" />
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
       </motion.div>
     </section>
   );

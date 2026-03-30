@@ -7,7 +7,7 @@ interface ButtonProps {
   children: React.ReactNode;
   href?: string;
   onClick?: () => void;
-  variant?: 'primary' | 'outline' | 'secondary' | 'link' | 'white';
+  variant?: 'primary' | 'outline' | 'secondary' | 'link' | 'white' | 'pill';
   size?: 'sm' | 'md' | 'lg';
   fullWidth?: boolean;
   className?: string;
@@ -29,20 +29,21 @@ export function Button({
   motionProps,
   ...rest
 }: ButtonProps & Record<string, any>) {
-  const baseStyles = "inline-flex items-center justify-center rounded-full transition-colors duration-150 disabled:opacity-50 disabled:pointer-events-none font-black text-[10px] font-sans tracking-[0.25em] uppercase";
+  const baseStyles = "inline-flex items-center justify-center rounded-full transform-gpu transition duration-200 disabled:opacity-50 disabled:pointer-events-none font-semibold text-[10px] font-sans tracking-[0.25em] uppercase";
 
   const variants = {
-    primary: "bg-ikigai-accent text-white hover:bg-ikigai-accent-hover px-4 py-2 md:px-5 md:py-2",
-    outline: "bg-transparent border border-ikigai-dark/20 text-ikigai-dark hover:bg-ikigai-accent hover:text-white px-4 py-2 md:px-5 md:py-2",
-    secondary: "bg-ikigai-surface text-ikigai-dark hover:bg-ikigai-dark hover:text-white px-4 py-2 md:px-5 md:py-2",
-    white: "bg-white text-ikigai-dark hover:bg-ikigai-accent hover:text-white px-4 py-2 md:px-5 md:py-2",
+    primary: "bg-ikigai-accent text-white shadow-[0_24px_48px_rgba(0,0,0,0.12)] hover:brightness-105 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-ikigai-accent/20",
+    outline: "bg-transparent border border-ikigai-dark/20 text-ikigai-dark hover:bg-ikigai-accent hover:text-white",
+    pill: "bg-white text-ikigai-dark border border-ikigai-dark/10 shadow-sm px-6 py-2 md:px-8 md:py-3 hover:brightness-105 hover:scale-105",
+    secondary: "bg-ikigai-surface text-ikigai-dark hover:bg-ikigai-dark hover:text-white",
+    white: "bg-white text-ikigai-dark hover:bg-ikigai-accent hover:text-white",
     link: "text-ikigai-dark hover:text-ikigai-accent p-0 bg-transparent shadow-none"
   };
 
   const sizeClasses: Record<string, string> = {
-    sm: 'text-[10px] md:text-[10px] px-3 py-1',
-    md: 'text-sm md:text-sm',
-    lg: 'text-base md:text-base',
+    sm: 'text-xs md:text-sm px-3 py-1',
+    md: 'text-sm md:text-sm px-6 py-3',
+    lg: 'text-sm md:text-base px-8 py-3',
   };
 
   const widthClass = fullWidth ? 'w-full' : '';
