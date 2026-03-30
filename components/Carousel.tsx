@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface CarouselProps<T> {
   items: T[];
@@ -15,7 +14,7 @@ export function Carousel<T>({
   items, 
   renderItem, 
   autoScroll = true,
-  itemsPerPage = { mobile: 1, tablet: 2, desktop: 4 }
+  itemsPerPage = { mobile: 1, tablet: 3, desktop: 4 }
 }: CarouselProps<T>) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
@@ -104,29 +103,40 @@ export function Carousel<T>({
   const getWidthClass = () => {
     const { mobile, tablet, desktop } = itemsPerPage;
     
-    // Calculate precise offsets for responsive gaps
-    const getOffset = (count: number, gapRem: number) => {
-      if (count <= 1) return '0px';
-      return `${((count - 1) * gapRem) / count}rem`;
-    };
-
-    const m = mobile === 1 ? 'min-w-full' : `min-w-[calc(${100/mobile}%-${getOffset(mobile, 1.5)})]`;
-    const t = tablet === 1 ? 'md:min-w-full' : `md:min-w-[calc(${100/tablet}%-${getOffset(tablet, 2)})]`;
-    const d = desktop === 1 ? 'lg:min-w-full' : `lg:min-w-[calc(${100/desktop}%-${getOffset(desktop, 2)})]`;
+    let classes = "flex-shrink-0 snap-start h-full ";
     
-    return `${m} ${t} ${d}`;
+    // Mobile (gap-6 -> 1.5rem)
+    if (mobile === 1) classes += "w-[85%] sm:w-[calc(100%-1.5rem)] ";
+    else if (mobile === 2) classes += "w-[calc(50%-0.75rem)] ";
+    else if (mobile === 3) classes += "w-[calc(33.333%-1rem)] ";
+    
+    // Tablet (md:gap-8 -> 2rem)
+    if (tablet === 1) classes += "md:w-full ";
+    else if (tablet === 2) classes += "md:w-[calc(50%-1rem)] ";
+    else if (tablet === 3) classes += "md:w-[calc(33.333%-1.333rem)] ";
+    else if (tablet === 4) classes += "md:w-[calc(25%-1.5rem)] ";
+    
+    // Desktop (lg:gap-8 -> 2rem)
+    if (desktop === 1) classes += "lg:w-full ";
+    else if (desktop === 2) classes += "lg:w-[calc(50%-1rem)] ";
+    else if (desktop === 3) classes += "lg:w-[calc(33.333%-1.333rem)] ";
+    else if (desktop === 4) classes += "lg:w-[calc(25%-1.5rem)] ";
+    else if (desktop === 5) classes += "lg:w-[calc(20%-1.6rem)] ";
+    
+    return classes.trim();
   };
 
   return (
     <div className="relative group/carousel" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
       <div 
         ref={scrollRef}
-        className="flex overflow-x-auto pb-24 hide-scrollbar snap-x snap-mandatory -mx-6 px-6 lg:-mx-8 lg:px-8 gap-6 md:gap-8"
+        className="flex overflow-x-auto pb-8 md:pb-24 hide-scrollbar snap-x snap-mandatory gap-6 md:gap-8"
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {items.map((item, index) => (
           <div 
             key={index}
-            className={`${getWidthClass()} flex-shrink-0 snap-start h-full`}
+            className={getWidthClass()}
           >
             <motion.div
               initial={{ opacity: 0, y: 15 }}
@@ -147,31 +157,31 @@ export function Carousel<T>({
       </div>
       
       {/* Navigation Controls */}
-      <div className="absolute -bottom-4 left-0 right-0 flex flex-col md:flex-row justify-between items-center gap-8 px-4 md:px-0">
-        <div className="flex items-center gap-8">
+      <div className="flex justify-center md:absolute md:-bottom-4 md:left-0 md:right-0 md:justify-between items-center gap-8 px-4 md:px-0 mt-4 md:mt-0">
+        <div className="flex items-center gap-8 w-full md:w-auto justify-between md:justify-start">
           <div className="flex gap-3">
             <button 
               onClick={() => scroll('left')}
-              className="w-14 h-14 rounded-full border border-ikigai-dark/10 flex items-center justify-center hover:bg-ikigai-dark hover:text-white transition-all duration-300 active:scale-90 shadow-sm hover:shadow-md"
+              className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-ikigai-dark/10 flex items-center justify-center hover:bg-ikigai-dark hover:text-white transition-all duration-300 active:scale-90 shadow-sm hover:shadow-md"
               aria-label="Previous slide"
             >
-              <ChevronLeft size={24} />
+              <span className="material-symbols-outlined text-[20px] md:text-[24px]">chevron_left</span>
             </button>
             <button 
               onClick={() => scroll('right')}
-              className="w-14 h-14 rounded-full border border-ikigai-dark/10 flex items-center justify-center hover:bg-ikigai-dark hover:text-white transition-all duration-300 active:scale-90 shadow-sm hover:shadow-md"
+              className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-ikigai-dark/10 flex items-center justify-center hover:bg-ikigai-dark hover:text-white transition-all duration-300 active:scale-90 shadow-sm hover:shadow-md"
               aria-label="Next slide"
             >
-              <ChevronRight size={24} />
+              <span className="material-symbols-outlined text-[20px] md:text-[24px]">chevron_right</span>
             </button>
           </div>
           
           {/* Progress Indicator */}
-          <div className="hidden sm:flex items-center gap-4">
-            <span className="text-[10px] font-black tracking-[0.3em] text-ikigai-dark uppercase w-6">
+          <div className="flex items-center gap-4">
+            <span className="text-[10px] font-black tracking-[0.3em] text-ikigai-dark uppercase w-6 text-right">
               {String(currentSlide + 1).padStart(2, '0')}
             </span>
-            <div className="w-24 h-[1px] bg-ikigai-dark/10 relative overflow-hidden">
+            <div className="w-16 md:w-24 h-[1px] bg-ikigai-dark/10 relative overflow-hidden">
               <motion.div 
                 className="absolute inset-0 bg-ikigai-accent origin-left"
                 initial={{ scaleX: 0 }}
