@@ -269,7 +269,7 @@ export default function IkigaiWebsite() {
 
           <div className="pt-12 border-t border-ikigai-bg/10 flex flex-col md:flex-row justify-between items-center gap-6">
             <p className="text-ikigai-bg/40 text-[10px] uppercase tracking-[0.2em]">
-              &copy; {new Date().getFullYear()} <a className="text-ikigai-accent hover:text-white transition ease-in" href="www.vish.studio" target='_blank'>VISH Studio</a>. All rights reserved.
+              &copy; {new Date().getFullYear()} VISH studio. All rights reserved.
             </p>
             <div className="flex gap-8 text-[10px] uppercase tracking-[0.2em] text-ikigai-bg/40">
               <a href="#" className="hover:text-ikigai-accent transition-colors focus-visible:text-ikigai-accent focus-visible:outline-none">Privacy Policy</a>
@@ -386,7 +386,7 @@ function DirectorCallSection() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="w-20 h-24 rounded-square-image overflow-hidden relative border border-ikigai-bg/20 shadow-lg"
+                className="w-20 h-20 rounded-full overflow-hidden relative border border-ikigai-bg/20 shadow-lg"
               >
                 <Image
                   src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop"
@@ -417,21 +417,6 @@ function DirectorCallSection() {
               <Button
                 onClick={() => setIsBooking(true)}
                 className="w-full py-6 px-10 flex justify-between items-center"
-                motionProps={{
-                  animate: {
-                    scale: [1, 1.03, 1],
-                    boxShadow: [
-                      "0px 10px 30px rgba(166, 77, 58, 0.2)",
-                      "0px 20px 50px rgba(166, 77, 58, 0.4)",
-                      "0px 10px 30px rgba(166, 77, 58, 0.2)"
-                    ]
-                  },
-                  transition: {
-                    duration: 2.5,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }
-                }}
               >
                 <div className="flex flex-col items-start">
                   <span className="uppercase tracking-[0.3em] text-[10px] font-black opacity-80 mb-1">Primary Action</span>
@@ -856,39 +841,38 @@ function TestimonialsSection() {
                   </div>
                 ))}
               </div>
-              <span className="text-[10px] uppercase tracking-widest font-bold text-ikigai-muted">
-                500+ Lives Impacted
-              </span>
+              <span className="text-[10px] uppercase tracking-widest font-bold text-ikigai-muted">500+ Lives Impacted</span>
             </div>
           </motion.div>
 
-          {/* Right Column: Testimonials Grid */}
-          <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-            {allTestimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`p-10 rounded-square-image border border-ikigai-dark/5 flex flex-col justify-between transition-all duration-500 hover:shadow-xl hover:-translate-y-1 ${index === 0 ? 'md:col-span-2 bg-ikigai-surface' : 'bg-white'
-                  }`}
-              >
-                <div>
-                  <Quote className="w-8 h-8 text-ikigai-accent/20 mb-6" />
-                  <p className={`font-serif italic text-ikigai-dark leading-snug mb-8 ${index === 0 ? 'text-2xl md:text-3xl' : 'text-xl'
-                    }`}>
-                    &quot;{testimonial.quote}&quot;
-                  </p>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-8 h-[1px] bg-ikigai-accent/30" />
-                  <span className="uppercase tracking-[0.2em] text-[9px] font-black text-ikigai-accent">
-                    {testimonial.author}
-                  </span>
-                </div>
-              </motion.div>
-            ))}
+          {/* Right Column: Testimonials Carousel */}
+          <div className="lg:col-span-8">
+            <Carousel
+              items={allTestimonials}
+              autoScroll={true}
+              itemsPerPage={{ mobile: 1, tablet: 2, desktop: 2 }}
+              renderItem={(testimonial: any, index: number) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: (index % 4) * 0.08 }}
+                  className={`p-10 rounded-square-image border border-ikigai-dark/5 flex flex-col justify-between transition-all duration-500 hover:shadow-xl hover:-translate-y-1 ${index === 0 ? 'bg-ikigai-surface' : 'bg-white'}`}
+                >
+                  <div>
+                    <Quote className="w-8 h-8 text-ikigai-accent/20 mb-6" />
+                    <p className={`font-serif italic text-ikigai-dark leading-snug mb-8 ${index === 0 ? 'text-2xl md:text-3xl' : 'text-xl'}`}>
+                      &quot;{testimonial.quote}&quot;
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-8 h-[1px] bg-ikigai-accent/30" />
+                    <span className="uppercase tracking-[0.2em] text-[9px] font-black text-ikigai-accent">{testimonial.author}</span>
+                  </div>
+                </motion.div>
+              )}
+            />
           </div>
         </div>
       </div>
@@ -1045,5 +1029,3 @@ function ContactSection() {
     </section>
   );
 }
-
-
