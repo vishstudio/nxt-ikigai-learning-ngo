@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { Button } from '@/components/Button';
 import Image from 'next/image';
@@ -14,6 +14,26 @@ export function HeroSection() {
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
   const scale = useTransform(scrollYProgress, [0, 1], [1.1, 1.2]);
+
+  function DiscoverWrapper() {
+    return (
+      <div className="inline-block">
+        <Button href="#story" variant="link" icon={
+          <motion.span
+            initial={false}
+            animate={{ x: [0, 6, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            whileHover={{ x: 12, transition: { duration: 0.28, ease: 'easeOut' } }}
+            className="material-symbols-outlined text-[16px]"
+          >
+            arrow_forward
+          </motion.span>
+        }>
+          Discover our mission
+        </Button>
+      </div>
+    );
+  }
 
   return (
     <section id="home" ref={containerRef} className="pt-32 pb-20 min-h-screen flex items-center overflow-hidden bg-ikigai-bg" aria-labelledby="hero-title">
@@ -31,24 +51,27 @@ export function HeroSection() {
               one child<br />
               at a time.
             </h1>
+
             <p className="text-lg md:text-xl text-ikigai-muted font-light max-w-lg mb-14 leading-relaxed">
               We provide free, high-quality education to children facing financial hardships. Because every child deserves the chance to find their purpose.
             </p>
+
             <div className="flex flex-wrap gap-10 items-center">
               <Button href="#director-call">
                 Book a Call
               </Button>
-              <Button href="#story" variant="link" icon={<span className="material-symbols-outlined text-[16px]">arrow_forward</span>}>
-                Discover our mission
-              </Button>
+
+              {/* Discover button with animated arrow */}
+              <DiscoverWrapper />
             </div>
           </motion.div>
 
+          {/* Discover button wrapper component */}
           <motion.div
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="relative h-[600px] md:h-[80vh] w-full arch-image overflow-hidden shadow-2xl group"
+            className="relative h-[500px] md:h-[70vh] w-full arch-image overflow-hidden shadow-2xl group"
           >
             <motion.div style={{ y, scale }} className="absolute inset-0">
               <Image
@@ -60,7 +83,9 @@ export function HeroSection() {
                 priority
               />
             </motion.div>
+
             <div className="absolute inset-0 bg-ikigai-dark/5 mix-blend-multiply pointer-events-none"></div>
+
             <div className="absolute bottom-0 left-0 right-0 p-[1.5rem] bg-black/60 text-white z-10 hidden xl:block">
               <p className="text-[10px] uppercase tracking-[0.4em] font-bold mb-2 opacity-60">Impact Report 2026</p>
               <p className="text-2xl font-serif italic">&quot;Education is the most powerful weapon which you can use to change the world.&quot;</p>

@@ -71,9 +71,9 @@ export const testimonials = [
 ];
 
 export const impactStats = [
-  { value: "5,000+", label: "Children Educated" },
-  { value: "120+", label: "Active Volunteers" },
-  { value: "15", label: "Communities Served" },
+  { value: "20+", label: "Children Educated" },
+  { value: "15+", label: "Active Volunteers" },
+  { value: "6", label: "Communities Served" },
   { value: "100%", label: "Free Education" },
 ];
 

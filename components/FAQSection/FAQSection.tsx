@@ -14,7 +14,7 @@ export function FAQSection() {
   return (
     <section id="faq" className="py-32 bg-ikigai-bg scroll-mt-20" aria-labelledby="faq-title">
       <div className="max-w-4xl mx-auto px-6 lg:px-8">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -31,7 +31,7 @@ export function FAQSection() {
 
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <motion.div 
+            <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -44,7 +44,7 @@ export function FAQSection() {
                 className="w-full px-6 py-6 text-left flex justify-between items-center focus:outline-none"
                 aria-expanded={openIndex === index}
               >
-                <span className="text-lg md:text-xl font-medium text-ikigai-dark pr-8">{faq.question}</span>
+                <span className="text-lg md:text-[16px] font-medium text-ikigai-dark pr-8">{faq.question}</span>
                 <span className={`material-symbols-outlined text-ikigai-accent transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}>
                   expand_more
                 </span>

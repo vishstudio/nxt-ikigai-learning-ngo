@@ -65,21 +65,14 @@ export function DirectorCallSection() {
             </div>
             <h3 className="text-3xl font-serif mb-4">Book a Discovery Call</h3>
             <p className="text-ikigai-muted font-light mb-10 leading-relaxed">
-              Schedule a 15-minute conversation directly with Sarah to explore partnership and volunteer opportunities.
+              Schedule a 15-minute conversation directly with Janesh to explore partnership and volunteer opportunities.
             </p>
 
             <div className="space-y-6">
-              <Button
-                onClick={() => setIsBooking(true)}
-                className="w-full"
-                icon={<span className="material-symbols-outlined text-[20px]">arrow_forward</span>}
-              >
-                Book a call
-              </Button>
+              <Button className='w-full' href='tel:+1234567890'>Book a call</Button>
 
               <p className="text-center text-sm text-ikigai-muted pt-4">
-                Or email directly at {' '}
-                <a href="mailto:sarah@ikigaingo.org" className="text-ikigai-accent hover:underline font-black mt-2 inline-block tracking-wider">sarah@ikigaingo.org</a>
+                <a href="mailto:janesh@ikigai-ngo.org" className="text-ikigai-accent hover:text-black font-regular mt-2 inline-block tracking-wider transition-all">janesh@ikigaingo.org</a>
               </p>
             </div>
           </div>
