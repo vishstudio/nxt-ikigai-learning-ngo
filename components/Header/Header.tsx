@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Button } from '@/components/Button';
 import { navItems, socialLinks } from '@/lib/data';
+import Logo from '../logo/logo';
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -16,13 +17,12 @@ export function Header() {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-ikigai-bg/95 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-8'}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-ikigai-bg/95 backdrop-blur-md shadow-sm py-2 md:py-4' : 'bg-transparent py-4 md:py-8'}`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <a href="#home" className="flex-shrink-0 flex items-center gap-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ikigai-accent">
-            <span className="material-symbols-outlined text-ikigai-accent text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">favorite</span>
-            <span className="text-2xl font-serif font-bold tracking-tight">Ikigai.</span>
+            <Logo />
           </a>
 
           {/* Desktop Nav */}
@@ -61,19 +61,18 @@ export function Header() {
 
       {/* Mobile Nav */}
       {mobileMenuOpen && (
-        <motion.div 
+        <motion.div
           initial={{ x: '100%' }}
           animate={{ x: 0 }}
           exit={{ x: '100%' }}
           transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-          className="md:hidden bg-ikigai-bg fixed inset-0 z-[60] flex flex-col p-8 shadow-2xl overflow-y-auto"
+          className="md:hidden bg-ikigai-bg fixed inset-0 z-[60] flex flex-col py-4 px-6 md:p-8 shadow-2xl overflow-y-auto"
         >
           <div className="flex justify-between items-center mb-16">
             <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-ikigai-accent text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">favorite</span>
-              <span className="text-2xl font-serif font-bold tracking-tight">Ikigai.</span>
+              <Logo />
             </div>
-            <button 
+            <button
               onClick={() => setMobileMenuOpen(false)}
               className="text-ikigai-dark p-2 hover:rotate-90 transition-transform duration-300"
               aria-label="Close menu"
@@ -81,7 +80,7 @@ export function Header() {
               <span className="material-symbols-outlined text-[32px]">close</span>
             </button>
           </div>
-          
+
           <div className="flex flex-col h-full justify-between">
             <nav className="space-y-8">
               {navItems.map((item, index) => (
@@ -100,12 +99,12 @@ export function Header() {
             </nav>
 
             <div className="space-y-12 pb-12 mt-12">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
               >
-                <Button 
+                <Button
                   href="#director-call"
                   onClick={() => setMobileMenuOpen(false)}
                   className="w-full py-6 text-xs tracking-[0.3em]"
@@ -114,7 +113,7 @@ export function Header() {
                 </Button>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.8 }}
@@ -123,9 +122,9 @@ export function Header() {
                 <p className="text-[10px] uppercase tracking-[0.4em] text-ikigai-muted mb-6 font-bold">Connect with us</p>
                 <div className="flex justify-center gap-10">
                   {socialLinks.map((social) => (
-                    <a 
-                      key={social.name} 
-                      href={social.href} 
+                    <a
+                      key={social.name}
+                      href={social.href}
                       aria-label={`Follow us on ${social.name}`}
                       className="text-ikigai-dark/40 hover:text-ikigai-accent transition-all hover:scale-125 hover:-translate-y-1"
                     >

@@ -3,14 +3,14 @@
 @theme {
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-serif), ui-serif, Georgia, serif;
-  
+
   /* Custom Elegant NGO Palette */
-  --color-ikigai-bg: #F9F8F6; /* Soft warm white */
-  --color-ikigai-dark: #2A2A26; /* Soft black / dark olive */
-  --color-ikigai-accent: #A64D3A; /* Deep warm terracotta */
-  --color-ikigai-accent-hover: #8A3E2E;
-  --color-ikigai-muted: #6B6B63; /* Muted olive/gray */
-  --color-ikigai-surface: #F0EFEA; /* Slightly darker for contrast */
+  --color-ikigai-bg: #f9f8f6; /* Soft warm white */
+  --color-ikigai-dark: #2a2a26; /* Soft black / dark olive */
+  --color-ikigai-accent: #a64d3a; /* Deep warm terracotta */
+  --color-ikigai-accent-hover: #8a3e2e;
+  --color-ikigai-muted: #6b6b63; /* Muted olive/gray */
+  --color-ikigai-surface: #f0efea; /* Slightly darker for contrast */
 }
 
 body {
@@ -48,4 +48,8 @@ body {
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+button {
+  cursor: pointer;
 }

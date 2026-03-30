@@ -10,9 +10,9 @@ interface CarouselProps<T> {
   itemsPerPage?: { mobile: number; tablet: number; desktop: number };
 }
 
-export function Carousel<T>({ 
-  items, 
-  renderItem, 
+export function Carousel<T>({
+  items,
+  renderItem,
   autoScroll = true,
   itemsPerPage = { mobile: 1, tablet: 3, desktop: 4 }
 }: CarouselProps<T>) {
@@ -67,7 +67,7 @@ export function Carousel<T>({
         const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
         const maxScroll = scrollWidth - clientWidth;
         const itemWidth = scrollWidth / items.length;
-        
+
         if (scrollLeft >= maxScroll - 10) {
           scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' });
         } else {
@@ -102,39 +102,39 @@ export function Carousel<T>({
 
   const getWidthClass = () => {
     const { mobile, tablet, desktop } = itemsPerPage;
-    
+
     let classes = "flex-shrink-0 snap-start h-full ";
-    
+
     // Mobile (gap-6 -> 1.5rem)
     if (mobile === 1) classes += "w-[85%] sm:w-[calc(100%-1.5rem)] ";
     else if (mobile === 2) classes += "w-[calc(50%-0.75rem)] ";
     else if (mobile === 3) classes += "w-[calc(33.333%-1rem)] ";
-    
+
     // Tablet (md:gap-8 -> 2rem)
     if (tablet === 1) classes += "md:w-full ";
     else if (tablet === 2) classes += "md:w-[calc(50%-1rem)] ";
     else if (tablet === 3) classes += "md:w-[calc(33.333%-1.333rem)] ";
     else if (tablet === 4) classes += "md:w-[calc(25%-1.5rem)] ";
-    
+
     // Desktop (lg:gap-8 -> 2rem)
     if (desktop === 1) classes += "lg:w-full ";
     else if (desktop === 2) classes += "lg:w-[calc(50%-1rem)] ";
     else if (desktop === 3) classes += "lg:w-[calc(33.333%-1.333rem)] ";
     else if (desktop === 4) classes += "lg:w-[calc(25%-1.5rem)] ";
     else if (desktop === 5) classes += "lg:w-[calc(20%-1.6rem)] ";
-    
+
     return classes.trim();
   };
 
   return (
     <div className="relative group/carousel" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
-      <div 
+      <div
         ref={scrollRef}
         className="flex overflow-x-auto pb-8 md:pb-24 hide-scrollbar snap-x snap-mandatory gap-6 md:gap-8"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {items.map((item, index) => (
-          <div 
+          <div
             key={index}
             className={getWidthClass()}
           >
@@ -142,12 +142,12 @@ export function Carousel<T>({
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ 
-                duration: 1, 
+              transition={{
+                duration: 1,
                 delay: (index % visibleItems) * 0.1,
                 ease: [0.22, 1, 0.36, 1]
               }}
-              whileHover={{ y: -8, transition: { duration: 0.4, ease: "easeOut" } }}
+              whileHover={{ cursor: "pointer", transition: { duration: 0.4, ease: "easeOut" } }}
               className="h-full"
             >
               {renderItem(item, index)}
@@ -155,19 +155,19 @@ export function Carousel<T>({
           </div>
         ))}
       </div>
-      
+
       {/* Navigation Controls */}
       <div className="flex justify-center md:absolute md:-bottom-4 md:left-0 md:right-0 md:justify-between items-center gap-8 px-4 md:px-0 mt-4 md:mt-0">
         <div className="flex items-center gap-8 w-full md:w-auto justify-between md:justify-start">
           <div className="flex gap-3">
-            <button 
+            <button
               onClick={() => scroll('left')}
               className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-ikigai-dark/10 flex items-center justify-center hover:bg-ikigai-dark hover:text-white transition-all duration-300 active:scale-90 shadow-sm hover:shadow-md"
               aria-label="Previous slide"
             >
               <span className="material-symbols-outlined text-[20px] md:text-[24px]">chevron_left</span>
             </button>
-            <button 
+            <button
               onClick={() => scroll('right')}
               className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-ikigai-dark/10 flex items-center justify-center hover:bg-ikigai-dark hover:text-white transition-all duration-300 active:scale-90 shadow-sm hover:shadow-md"
               aria-label="Next slide"
@@ -175,14 +175,14 @@ export function Carousel<T>({
               <span className="material-symbols-outlined text-[20px] md:text-[24px]">chevron_right</span>
             </button>
           </div>
-          
+
           {/* Progress Indicator */}
           <div className="flex items-center gap-4">
             <span className="text-[10px] font-black tracking-[0.3em] text-ikigai-dark uppercase w-6 text-right">
               {String(currentSlide + 1).padStart(2, '0')}
             </span>
             <div className="w-16 md:w-24 h-[1px] bg-ikigai-dark/10 relative overflow-hidden">
-              <motion.div 
+              <motion.div
                 className="absolute inset-0 bg-ikigai-accent origin-left"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: (currentSlide + 1) / totalSlides }}

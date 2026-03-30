@@ -40,7 +40,7 @@ export function SuccessStoriesSection() {
 
   return (
     <section id="success-stories" className="py-32 bg-ikigai-bg scroll-mt-20" aria-labelledby="success-stories-title">
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -55,35 +55,38 @@ export function SuccessStoriesSection() {
           </p>
         </div>
 
-        <Carousel 
+        <Carousel
           items={stories}
           itemsPerPage={{ mobile: 1, tablet: 3, desktop: 4 }}
           renderItem={(story, index) => (
             <div className="group h-full flex flex-col">
-              <div className="relative aspect-square w-full rounded-square-image overflow-hidden mb-8 shadow-lg group-hover:shadow-2xl transition-all duration-700 ease-out">
-                <motion.div 
+              <div className="relative aspect-square w-full rounded-square-image overflow-hidden mb-8 shadow-lg transition-all duration-700 ease-out">
+                <motion.div
                   initial={{ scale: 1.1 }}
                   whileInView={{ scale: 1 }}
                   transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                   className="absolute inset-0"
                 >
-                  <Image 
-                    src={story.image} 
-                    alt={`Success story: ${story.name}`} 
-                    fill 
-                    className="object-cover group-hover:scale-105 group-hover:brightness-[0.85] transition-all duration-1000 ease-out" 
-                    referrerPolicy="no-referrer" 
+                  <Image
+                    src={story.image}
+                    alt={`Success story: ${story.name}`}
+                    fill
+                    className="object-cover group-hover:scale-105 group-hover:brightness-[0.85] transition-all duration-1000 ease-out"
+                    referrerPolicy="no-referrer"
                   />
                 </motion.div>
+
                 <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-4 py-1 rounded-full shadow-sm transform group-hover:translate-x-1 transition-transform duration-500">
                   <span className="text-[10px] uppercase tracking-widest font-bold text-ikigai-accent">{story.tag}</span>
                 </div>
+
                 <div className="absolute inset-0 bg-gradient-to-t from-ikigai-dark/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
-                   <p className="text-white text-sm font-light leading-relaxed transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <p className="text-white text-sm font-light leading-relaxed transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                     {story.description}
                   </p>
                 </div>
               </div>
+
               <h3 className="text-xl font-serif mb-4 text-ikigai-dark group-hover:text-ikigai-accent transition-colors mt-auto">{story.name}</h3>
             </div>
           )}

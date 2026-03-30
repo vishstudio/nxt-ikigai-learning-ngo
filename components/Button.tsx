@@ -15,19 +15,19 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   motionProps?: any;
 }
 
-export function Button({ 
-  children, 
-  href, 
-  onClick, 
-  variant = 'accent', 
-  className = '', 
-  icon, 
+export function Button({
+  children,
+  href,
+  onClick,
+  variant = 'accent',
+  className = '',
+  icon,
   iconPosition = 'right',
   motionProps,
   ...props
 }: ButtonProps) {
   const baseStyles = "inline-flex items-center justify-center rounded-full transition-all duration-300 active:scale-95 disabled:opacity-50 disabled:pointer-events-none uppercase tracking-[0.25em] font-black text-[10px] group";
-  
+
   const variants = {
     accent: "bg-ikigai-accent text-white hover:bg-ikigai-accent-hover hover:bg-black hover:text-white px-10 py-5 md:px-12 md:py-6",
     outlined: "border border-ikigai-dark/20 text-ikigai-dark hover:bg-ikigai-dark hover:text-white px-8 py-3 md:px-10 md:py-4",
