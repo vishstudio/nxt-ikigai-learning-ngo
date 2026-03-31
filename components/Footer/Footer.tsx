@@ -1,7 +1,8 @@
 "use client";
 
 import { Button } from '@/components/Button';
-import { navItems, socialLinks } from '@/lib/data';
+import { navItems } from '@/lib/data';
+import SocialLinks from '@/components/SocialLinks/SocialLinks';
 import Logo from '../logo/Logo';
 
 export function Footer() {
@@ -22,16 +23,7 @@ export function Footer() {
               Nurturing potential and providing free education to those who need it most. Every child deserves a reason for being.
             </p>
             <div className="flex gap-5">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  className="w-10 h-10 rounded-full border border-ikigai-bg/10 flex items-center justify-center hover:bg-ikigai-accent hover:border-ikigai-accent transition-all text-ikigai-bg/80 hover:text-white"
-                  aria-label={social.name}
-                >
-                  <social.icon size={18} />
-                </a>
-              ))}
+              <SocialLinks variant={1} size={18} />
             </div>
           </div>
 

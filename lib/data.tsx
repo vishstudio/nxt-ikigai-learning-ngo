@@ -40,12 +40,13 @@ export const navItems = [
   { name: 'FAQ', href: '#faq' },
 ];
 
-export const socialLinks = [
-  { name: 'Instagram', icon: InstagramIcon, href: '#' },
-  { name: 'Twitter', icon: TwitterIcon, href: '#' },
-  { name: 'Facebook', icon: FacebookIcon, href: '#' },
-  { name: 'LinkedIn', icon: LinkedinIcon, href: '#' },
-];
+export const Icons = {
+  Instagram: InstagramIcon,
+  Twitter: TwitterIcon,
+  Facebook: FacebookIcon,
+  LinkedIn: LinkedinIcon,
+};
+
 
 export const testimonials = [
   {

@@ -29,7 +29,7 @@ export function StorySection() {
             whileInView={{ opacity: 1, scale: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="relative h-[500px] lg:h-[800px] w-full arch-image overflow-hidden shadow-xl"
+            className="relative h-[500px] lg:h-[70vh] w-full arch-image overflow-hidden shadow-xl"
           >
             <motion.div style={{ y, scale }} className="absolute inset-0">
               <Image

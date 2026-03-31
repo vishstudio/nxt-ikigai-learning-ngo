@@ -6,7 +6,6 @@ import { Button } from '@/components/Button';
 import Image from 'next/image';
 
 export function DirectorCallSection() {
-  const [isBooking, setIsBooking] = useState(false);
 
   return (
     <section id="director-call" className="py-32 bg-ikigai-dark text-ikigai-bg relative scroll-mt-20" aria-labelledby="director-call-title">
@@ -20,7 +19,7 @@ export function DirectorCallSection() {
         <div className="text-center mb-20">
           <span className="uppercase tracking-[0.2em] text-xs font-bold text-ikigai-accent mb-6 block">A Personal Invitation</span>
           <h2 id="director-call-title" className="text-4xl md:text-6xl lg:text-7xl font-serif italic mb-12 leading-tight max-w-4xl mx-auto text-ikigai-bg/90">
-            &quot;I started Ikigai because I saw too much brilliance lost to poverty.&quot;
+            &quot;We started Ikigai because we saw too much brilliance lost to poverty.&quot;
           </h2>
         </div>
 
@@ -29,12 +28,20 @@ export function DirectorCallSection() {
             <p className="text-xl font-serif text-ikigai-bg/80 leading-relaxed mb-6 italic">
               Dear friend,
             </p>
+
             <p className="text-lg font-light text-ikigai-bg/70 leading-relaxed mb-6">
               We aren&apos;t just teaching math or reading; we are providing a safe space where children feel valued, heard, and empowered to dream beyond their circumstances.
             </p>
+
+            <p className="text-lg font-light text-ikigai-bg/70 leading-relaxed mb-12">
+              Due to COVID, the tuition has been online (through WhatsApp, Zoom, Microsoft
+              Teams, etc). And since it worked we continued it online itself…
+            </p>
+
             <p className="text-lg font-light text-ikigai-bg/70 leading-relaxed mb-12">
               I invite you to a personal conversation. Whether you want to volunteer, donate, or simply learn more about our mission, I want to hear from you. Let&apos;s discuss how we can change lives together.
             </p>
+
             <div className="flex items-center gap-6">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -60,9 +67,10 @@ export function DirectorCallSection() {
 
           {/* The Booking Card */}
           <div className="lg:col-span-5 bg-ikigai-bg text-ikigai-dark p-10 md:p-12 rounded-[2rem] shadow-2xl relative transform lg:translate-y-16">
-            <div className="absolute -top-6 -right-6 w-24 h-24 bg-black rounded-full flex items-center justify-center text-white transform rotate-12 shadow-lg">
+            <div className="absolute -top-6 -right-6 w-24 h-24 bg-black rounded-full hidden md:flex items-center justify-center text-white transform rotate-12 shadow-lg">
               <span className="font-serif italic text-xl">Let&apos;s talk</span>
             </div>
+
             <h3 className="text-3xl font-serif mb-4">Book a Discovery Call</h3>
             <p className="text-ikigai-muted font-light mb-10 leading-relaxed">
               Schedule a 15-minute conversation directly with Janesh to explore partnership and volunteer opportunities.

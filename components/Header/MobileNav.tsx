@@ -3,7 +3,8 @@
 import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Button } from '@/components/Button';
-import { navItems, socialLinks } from '@/lib/data';
+import { navItems } from '@/lib/data';
+import SocialLinks from '@/components/SocialLinks/SocialLinks';
 import Logo from '../logo/Logo';
 
 export default function MobileNav({ onClose }: { onClose: () => void }) {
@@ -60,17 +61,8 @@ export default function MobileNav({ onClose }: { onClose: () => void }) {
             className="flex flex-col items-center"
           >
             <p className="text-[10px] uppercase tracking-[0.4em] text-ikigai-muted mb-6 font-bold">Connect with us</p>
-            <div className="flex justify-center gap-10">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  aria-label={`Follow us on ${social.name}`}
-                  className="text-ikigai-dark/40 hover:text-ikigai-accent transition-all hover:scale-125 hover:-translate-y-1"
-                >
-                  <social.icon size={24} />
-                </a>
-              ))}
+            <div className="flex justify-center gap-6">
+              <SocialLinks variant={2} size={24} />
             </div>
           </motion.div>
         </div>
