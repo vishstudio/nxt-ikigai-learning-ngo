@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`scroll-smooth ${poppins.variable} ${cormorantGaramond.variable}`}>
+    <html lang="en" className={`scroll-smooth overflow-x-hidden ${poppins.variable} ${cormorantGaramond.variable}`}>
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" rel="stylesheet" />
       </head>

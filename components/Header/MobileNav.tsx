@@ -21,7 +21,7 @@ export default function MobileNav({ onClose }: { onClose: () => void }) {
       animate={{ x: 0 }}
       exit={{ x: '100%' }}
       transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-      className="lg:hidden bg-ikigai-bg fixed inset-0 z-[59] flex flex-col py-4 pt-30 md:pt-34 px-6 md:p-8 shadow-2xl overflow-hidden"
+      className="lg:hidden bg-ikigai-bg fixed inset-0 z-[59] flex flex-col py-4 px-6 md:px-8 shadow-2xl overflow-hidden"
     >
       <div className="flex flex-col h-full justify-between">
         <nav className="space-y-6 pt-4">
