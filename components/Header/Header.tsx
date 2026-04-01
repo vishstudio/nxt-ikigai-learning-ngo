@@ -1,10 +1,11 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { motion } from 'motion/react';
 import { Button } from '@/components/Button';
 import { navItems } from '@/lib/data';
 import Logo from '../logo/Logo';
+import siteData from '../../data/site-data.json';
+
 // MobileNav is now rendered at the page level
 
 export function Header({ mobileMenuOpen: mobileMenuOpenProp, setMobileMenuOpen: setMobileMenuOpenProp }: { mobileMenuOpen?: boolean; setMobileMenuOpen?: (v: boolean) => void } = {}) {
@@ -44,7 +45,7 @@ export function Header({ mobileMenuOpen: mobileMenuOpenProp, setMobileMenuOpen: 
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex">
-            <Button href="#director-call" variant="outlined">
+            <Button href={(siteData as any).phone.href} variant="outlined">
               Book a Call
             </Button>
           </div>

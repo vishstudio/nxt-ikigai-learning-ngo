@@ -5,6 +5,7 @@ import { motion } from 'motion/react';
 import { Button } from '@/components/Button';
 import { navItems } from '@/lib/data';
 import SocialLinks from '@/components/SocialLinks/SocialLinks';
+import siteData from '../../data/site-data.json';
 import Logo from '../logo/Logo';
 
 export default function MobileNav({ onClose }: { onClose: () => void }) {
@@ -39,14 +40,14 @@ export default function MobileNav({ onClose }: { onClose: () => void }) {
           ))}
         </nav>
 
-        <div className="space-y-12 pb-12 mt-12 pt">
+        <div className="space-y-12 pb-1 mt-12 pt">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
           >
             <Button
-              href="#director-call"
+              href={(siteData as any).phone.href}
               onClick={onClose}
               className="w-full py-6 text-xs tracking-[0.3em]"
             >
@@ -64,9 +65,20 @@ export default function MobileNav({ onClose }: { onClose: () => void }) {
             <div className="flex justify-center gap-6">
               <SocialLinks variant={2} size={24} />
             </div>
+            <div className="pt-6 border-t border-ikigai-bg/10 text-center">
+              <p className="text-ikigai-dark text-[10px] uppercase tracking-[0.2em]">
+                &copy; {new Date().getFullYear()}
+                <a
+                  className="text-ikigai-accent hover:text-white transition-all ease-in-out"
+                  href={(siteData as any).copyright.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                > {(siteData as any).copyright.name}</a>. All rights reserved.
+              </p>
+            </div>
           </motion.div>
         </div>
       </div>
-    </motion.div>
+    </motion.div >
   );
 }

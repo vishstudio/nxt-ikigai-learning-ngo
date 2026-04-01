@@ -1,6 +1,6 @@
 "use client";
 
-import socialJson from '../../data/social-links.json';
+import siteData from '../../data/site-data.json';
 import { Icons } from '@/lib/data';
 
 export default function SocialLinks({
@@ -14,7 +14,7 @@ export default function SocialLinks({
   itemClass?: string;
   variant?: 1 | 2;
 }) {
-  const links: { name: string; href: string; target?: string }[] = socialJson as any;
+  const links: { name: string; href: string; target?: string }[] = (siteData as any).socialLinks as any;
 
 
   const footerItemClass = 'w-10 h-10 rounded-full border border-ikigai-bg/10 flex items-center justify-center hover:bg-ikigai-accent hover:border-ikigai-accent transition-all text-ikigai-bg/80 hover:text-white';

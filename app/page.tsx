@@ -6,9 +6,9 @@ import { useState } from 'react';
 import { HeroSection } from '@/components/HeroSection/HeroSection';
 import { ImpactSection } from '@/components/ImpactSection/ImpactSection';
 import { StorySection } from '@/components/StorySection/StorySection';
+import { StudentsSection } from '@/components/StudentsSection/StudentsSection';
 import { ActivitiesSection } from '@/components/ActivitiesSection/ActivitiesSection';
 import { VolunteersSection } from '@/components/VolunteersSection/VolunteersSection';
-import { SuccessStoriesSection } from '@/components/SuccessStoriesSection/SuccessStoriesSection';
 import { TestimonialsSection } from '@/components/TestimonialsSection/TestimonialsSection';
 import { FAQSection } from '@/components/FAQSection/FAQSection';
 import { DirectorCallSection } from '@/components/DirectorCallSection/DirectorCallSection';
@@ -31,7 +31,8 @@ export default function IkigaiWebsite() {
         <DirectorCallSection />
         <ActivitiesSection />
         <VolunteersSection />
-        <SuccessStoriesSection />
+        {/* <SuccessStoriesSection /> */}
+        <StudentsSection />
         <TestimonialsSection />
         <FAQSection />
         <ContactSection />

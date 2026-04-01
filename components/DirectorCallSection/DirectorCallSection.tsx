@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Button } from '@/components/Button';
+import siteData from '../../data/site-data.json';
 import Image from 'next/image';
 
 export function DirectorCallSection() {
@@ -77,10 +78,10 @@ export function DirectorCallSection() {
             </p>
 
             <div className="space-y-6">
-              <Button className='w-full' href='tel:+1234567890'>Book a call</Button>
+              <Button className='w-full' href={(siteData as any).phone.href}>Book a call</Button>
 
               <p className="text-center text-sm text-ikigai-muted pt-4">
-                <a href="mailto:janesh@ikigai-ngo.org" className="text-ikigai-accent hover:text-black font-regular mt-2 inline-block tracking-wider transition-all">janesh@ikigaingo.org</a>
+                <a href={`mailto:${(siteData as any).email}`} className="text-ikigai-accent hover:text-black font-regular mt-2 inline-block tracking-wider transition-all">{(siteData as any).email}</a>
               </p>
             </div>
           </div>

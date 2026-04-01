@@ -24,17 +24,6 @@ export function VolunteersSection() {
       bio: 'Runs art and theatre activities that help students express themselves and build social skills.',
       img: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1000&auto=format&fit=crop'
     },
-    { name: 'Sana Begum', role: 'Science Mentor', img: 'https://images.unsplash.com/photo-1545996124-1f6a73b3d6d6?q=80&w=1000&auto=format&fit=crop', href: 'https://www.linkedin.com/in/sana-begum' },
-    { name: 'Deepak Rao', role: 'Coding Instructor', img: 'https://images.unsplash.com/photo-1541781774459-bb1e5d0f0f6c?q=80&w=1000&auto=format&fit=crop', href: 'https://www.linkedin.com/in/deepak-rao' },
-    { name: 'Lina Gomez', role: 'Hindi Teacher', img: 'https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=1000&auto=format&fit=crop', href: 'https://www.linkedin.com/in/lina-gomez' },
-    { name: 'Omar Ali', role: 'Sports Coach', img: 'https://images.unsplash.com/photo-1524503033411-c9566986fc8f?q=80&w=1000&auto=format&fit=crop', href: 'https://www.linkedin.com/in/omar-ali' },
-    { name: 'Nisha Verma', role: 'Mentor', img: 'https://images.unsplash.com/photo-1544006659-f0b21884ce1d?q=80&w=1000&auto=format&fit=crop', href: 'https://www.linkedin.com/in/nisha-verma' },
-    {
-      name: 'Aisha Smith',
-      role: 'Math Tutor',
-      bio: 'Leads weekly math clubs for primary students, focusing on confidence-building and problem solving.',
-      img: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=1000&auto=format&fit=crop'
-    }
   ];
 
   return (

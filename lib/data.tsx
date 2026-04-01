@@ -35,7 +35,7 @@ const LinkedinIcon = ({ size = 24, ...props }: IconProps) => (
 export const navItems = [
   { name: 'About', href: '#story' },
   { name: 'Activities', href: '#activities' },
-  { name: 'Stories', href: '#success-stories' },
+  // { name: 'Stories', href: '#success-stories' },
   { name: 'Testimonials', href: '#testimonials' },
   { name: 'FAQ', href: '#faq' },
 ];

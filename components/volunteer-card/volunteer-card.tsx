@@ -26,14 +26,14 @@ const VolunteerCard: React.FC<Props> = ({ name, role, img, href = '#', index = 0
         aria-label={`View ${name} profile`}
         className="block"
       >
-        <div className="bg-ikigai-bg/95 border border-ikigai-dark/10 p-3 rounded-2xl shadow-sm flex items-center gap-4 group hover:bg-ikigai-dark transition-colors duration-800 ease-in-out">
+        <div className="bg-ikigai-bg/95 border border-ikigai-dark/10 p-3 rounded-2xl shadow-sm flex items-center gap-4 group hover:border-ikigai-accent transition-colors duration-800 ease-in-out">
           <div className="w-14 h-14 rounded-full overflow-hidden flex-shrink-0">
             <Image src={img} alt={name} width={56} height={56} className="object-cover" referrerPolicy="no-referrer" />
           </div>
 
           <div>
-            <p className="font-serif text-base text-ikigai-dark group-hover:text-ikigai-bg">{name}</p>
-            <p className="text-xs text-ikigai-accent group-hover:text-ikigai-bg uppercase tracking-[0.12em] mt-1">{role}</p>
+            <p className="font-serif text-base text-ikigai-dark">{name}</p>
+            <p className="text-xs text-ikigai-accent uppercase tracking-[0.12em] mt-1">{role}</p>
           </div>
         </div>
       </a>

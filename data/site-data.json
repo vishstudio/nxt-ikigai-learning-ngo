@@ -1,0 +1,30 @@
+{
+  "socialLinks": [
+    {
+      "name": "LinkedIn",
+      "href": "https://www.linkedin.com/company/ikigai-ngo/",
+      "target": "_blank"
+    },
+    {
+      "name": "Instagram",
+      "href": "https://www.instagram.com/ikigai.mu/",
+      "target": "_blank"
+    },
+    {
+      "name": "Facebook",
+      "href": "https://www.facebook.com/ikigaimu/",
+      "target": "_blank"
+    }
+  ],
+  "email": "ikigai.ngo.mu@gmail.com",
+  "phone": {
+    "href": "tel:+23055174182",
+    "display": "+230 5517 4182"
+  },
+  "address": "Avenue Président François Mitterand, Centre de Flacq, Mauritius",
+  "mapsHref": "https://www.google.com/maps/search/?api=1&query=Avenue%20Pr%C3%A9sident%20Fran%C3%A7ois%20Mitterand%2C%20Centre%20de%20Flacq%20Mauritius",
+  "copyright": {
+    "name": "VISH studio",
+    "href": "https://www.vish.studio"
+  }
+}

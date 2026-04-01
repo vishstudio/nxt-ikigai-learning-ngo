@@ -1,9 +1,10 @@
 "use client";
 
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { Button } from '@/components/Button';
 import Image from 'next/image';
+import siteData from '../../data/site-data.json';
 
 export function HeroSection() {
   const containerRef = useRef<HTMLElement>(null);
@@ -18,7 +19,7 @@ export function HeroSection() {
   function DiscoverWrapper() {
     return (
       <div className="inline-block">
-        <Button href="#story" variant="link" icon={
+        <Button href="#director-call" variant="link" icon={
           <motion.span
             initial={false}
             animate={{ x: [0, 6, 0] }}
@@ -57,7 +58,7 @@ export function HeroSection() {
             </p>
 
             <div className="flex flex-wrap gap-10 items-center">
-              <Button href="#director-call">
+              <Button href={(siteData as any).phone.href}>
                 Book a Call
               </Button>
 
@@ -87,7 +88,6 @@ export function HeroSection() {
             <div className="absolute inset-0 bg-ikigai-dark/5 mix-blend-multiply pointer-events-none"></div>
 
             <div className="absolute bottom-0 left-0 right-0 p-[1.5rem] bg-black/60 text-white z-10 hidden xl:block">
-              <p className="text-[10px] uppercase tracking-[0.4em] font-bold mb-2 opacity-60">Impact Report 2026</p>
               <p className="text-2xl font-serif italic">&quot;Education is the most powerful weapon which you can use to change the world.&quot;</p>
             </div>
           </motion.div>
