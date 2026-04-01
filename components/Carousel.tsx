@@ -106,7 +106,7 @@ export function Carousel<T>({
     let classes = "flex-shrink-0 snap-start h-full ";
 
     // Mobile (gap-6 -> 1.5rem)
-    if (mobile === 1) classes += "w-[85%] sm:w-[calc(100%-1.5rem)] ";
+    if (mobile === 1) classes += "w-full ";
     else if (mobile === 2) classes += "w-[calc(50%-0.75rem)] ";
     else if (mobile === 3) classes += "w-[calc(33.333%-1rem)] ";
 

@@ -70,8 +70,9 @@ export function TestimonialsSection() {
               <Carousel
                 items={testimonials}
                 renderItem={(testimonial, index) => (
-                  <div key={index} className="px-3 pb-8 h-full flex flex-col">
+                  <div key={index} className="px-1 md:px-3 pb-8 h-full flex flex-col">
                     <TestimonialCard
+                      className="h-full"
                       index={index}
                       quote={testimonial.quote}
                       author={testimonial.author}

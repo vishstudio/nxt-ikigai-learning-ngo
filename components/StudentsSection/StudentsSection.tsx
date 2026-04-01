@@ -33,8 +33,8 @@ export function StudentsSection() {
             </div>
 
             <div className="flex gap-4">
-              <Button href="#contact" variant="primary">Get Help</Button>
-              <Button href="#volunteers" variant="ghost">Volunteer</Button>
+              <Button href="#contact" variant="accent">Get Help</Button>
+              <Button href="#volunteers" variant="outlined">Volunteer</Button>
             </div>
           </div>
 
