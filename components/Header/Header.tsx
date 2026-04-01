@@ -21,7 +21,7 @@ export function Header({ mobileMenuOpen: mobileMenuOpenProp, setMobileMenuOpen: 
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-60 transition-all duration-500 ${scrolled && !mobileMenuOpen ? 'bg-ikigai-bg/95 backdrop-blur-md shadow-sm py-4 md:py-4' : 'bg-transparent py-4 lg:py-8'}`}>
+    <header className={`fixed top-0 left-0 right-0 z-60 transition-all duration-500 ${scrolled && !mobileMenuOpen ? 'bg-ikigai-bg/95 backdrop-blur-md shadow-sm py-4 md:py-4' : 'bg-ikigai-bg py-4 lg:py-8'}`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
