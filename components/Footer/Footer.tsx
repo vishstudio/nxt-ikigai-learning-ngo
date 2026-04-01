@@ -4,7 +4,7 @@ import { Button } from '@/components/Button';
 import { navItems } from '@/lib/data';
 import siteData from '../../data/site-data.json';
 import SocialLinks from '@/components/SocialLinks/SocialLinks';
-import Logo from '../logo/Logo';
+import Logo from '../logo/logo';
 
 export function Footer() {
   return (

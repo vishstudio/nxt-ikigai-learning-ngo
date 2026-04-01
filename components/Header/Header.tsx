@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/Button';
 import { navItems } from '@/lib/data';
-import Logo from '../logo/Logo';
+import Logo from '../logo/logo';
 import siteData from '../../data/site-data.json';
 
 // MobileNav is now rendered at the page level

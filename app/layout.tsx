@@ -23,11 +23,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`scroll-smooth overflow-x-hidden ${poppins.variable} ${cormorantGaramond.variable}`}>
+    <html lang="en" className={`scroll-smooth overflow-x-clip ${poppins.variable} ${cormorantGaramond.variable}`}>
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" rel="stylesheet" />
       </head>
-      <body className="font-sans bg-ikigai-bg text-ikigai-dark antialiased overflow-x-hidden selection:bg-ikigai-accent/20 selection:text-ikigai-dark">
+      <body className="font-sans bg-ikigai-bg text-ikigai-dark antialiased overflow-x-clip selection:bg-ikigai-accent/20 selection:text-ikigai-dark">
         {children}
       </body>
     </html>

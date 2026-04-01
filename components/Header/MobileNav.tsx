@@ -6,7 +6,7 @@ import { Button } from '@/components/Button';
 import { navItems } from '@/lib/data';
 import SocialLinks from '@/components/SocialLinks/SocialLinks';
 import siteData from '../../data/site-data.json';
-import Logo from '../logo/Logo';
+import Logo from '../logo/logo';
 
 export default function MobileNav({ onClose }: { onClose: () => void }) {
   useEffect(() => {
