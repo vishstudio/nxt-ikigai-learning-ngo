@@ -1,6 +1,7 @@
-import type {NextConfig} from 'next';
+import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: "export",
   reactStrictMode: true,
   eslint: {
     ignoreDuringBuilds: true,
@@ -10,25 +11,26 @@ const nextConfig: NextConfig = {
   },
   // Allow access to remote image placeholder.
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'picsum.photos',
-        port: '',
-        pathname: '/**', // This allows any path under the hostname
+        protocol: "https",
+        hostname: "picsum.photos",
+        port: "",
+        pathname: "/**", // This allows any path under the hostname
       },
       {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-        port: '',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+        pathname: "/**",
       },
     ],
   },
-  webpack: (config, {dev}) => {
+  webpack: (config, { dev }) => {
     // HMR is disabled in AI Studio via DISABLE_HMR env var.
     // Do not modifyâfile watching is disabled to prevent flickering during agent edits.
-    if (dev && process.env.DISABLE_HMR === 'true') {
+    if (dev && process.env.DISABLE_HMR === "true") {
       config.watchOptions = {
         ignored: /.*/,
       };
