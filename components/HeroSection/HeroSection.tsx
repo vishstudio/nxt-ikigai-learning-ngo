@@ -6,6 +6,26 @@ import { Button } from '@/components/Button';
 import Image from 'next/image';
 import siteData from '../../data/site-data.json';
 
+function DiscoverWrapper() {
+  return (
+    <div className="inline-block">
+      <Button href="#director-call" variant="link" icon={
+        <motion.span
+          initial={false}
+          animate={{ x: [0, 6, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          whileHover={{ x: 12, transition: { duration: 0.28, ease: 'easeOut' } }}
+          className="material-symbols-outlined text-[16px]"
+        >
+          arrow_forward
+        </motion.span>
+      }>
+        Discover our mission
+      </Button>
+    </div>
+  );
+}
+
 export function HeroSection() {
   const containerRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -15,26 +35,6 @@ export function HeroSection() {
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
   const scale = useTransform(scrollYProgress, [0, 1], [1.1, 1.2]);
-
-  function DiscoverWrapper() {
-    return (
-      <div className="inline-block">
-        <Button href="#director-call" variant="link" icon={
-          <motion.span
-            initial={false}
-            animate={{ x: [0, 6, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            whileHover={{ x: 12, transition: { duration: 0.28, ease: 'easeOut' } }}
-            className="material-symbols-outlined text-[16px]"
-          >
-            arrow_forward
-          </motion.span>
-        }>
-          Discover our mission
-        </Button>
-      </div>
-    );
-  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -111,7 +111,7 @@ export function HeroSection() {
             variants={imageRevealVariants}
             initial="hidden"
             animate="visible"
-            className="relative h-[500px] md:h-[70vh] w-full arch-image overflow-hidden shadow-2xl group"
+            className="relative h-[500px] md:h-[70vh] w-full arch-image overflow-hidden group"
           >
             <motion.div style={{ y, scale }} className="absolute inset-0 w-full h-full">
               <Image
