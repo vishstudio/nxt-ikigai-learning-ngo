@@ -44,7 +44,7 @@ export function FAQSection() {
                 className="w-full px-6 py-6 text-left flex justify-between items-center focus:outline-none"
                 aria-expanded={openIndex === index}
               >
-                <span className="text-lg md:text-[16px] font-medium text-ikigai-dark pr-8">{faq.question}</span>
+                <span className="text-md md:text-[16px] font-medium text-ikigai-dark pr-8">{faq.question}</span>
                 <span className={`material-symbols-outlined text-ikigai-accent transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}>
                   expand_more
                 </span>
