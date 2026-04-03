@@ -1,10 +1,12 @@
 import type { NextConfig } from "next";
 
-const isProd = process.env.NODE_ENV === "production";
+const isGithubActions = process.env.GITHUB_ACTIONS || false;
+const repo = "nxt-ikigai-learning-ngo";
+const basePath = isGithubActions ? `/${repo}` : "";
 
 const nextConfig: NextConfig = {
-  basePath: isProd ? "/nxt-ikigai-learning-ngo" : "",
-  assetPrefix: isProd ? "/nxt-ikigai-learning-ngo/" : "",
+  basePath,
+  assetPrefix: basePath,
   output: "export",
   reactStrictMode: true,
   eslint: {
