@@ -3,22 +3,25 @@
 import { motion } from 'motion/react';
 import VolunteerCard from '../volunteer-card/volunteer-card';
 import { Carousel } from '@/components/Carousel';
+import { useBasePath } from '@/lib/useBasePath';
 
 export function VolunteersSection() {
+  const basePath = useBasePath();
+
   const volunteers = [
     {
       name: 'Charvi Sookha',
-      img: '/assets/charvi.jpeg',
+      img: basePath + '/assets/charvi.jpeg',
       href: 'https://www.linkedin.com/in/charvi-sookha-32206a332/'
     },
     {
       name: 'Janesh Luximan',
-      img: '/assets/janesh.jpeg',
+      img: basePath + '/assets/janesh.jpeg',
       href: 'https://www.linkedin.com/in/janesh-luximan/'
     },
     {
       name: 'Ayesha Bhudookan',
-      img: '/assets/ayesha.jpeg',
+      img: basePath + '/assets/ayesha.jpeg',
       href: 'https://www.linkedin.com/in/ayesha-bhudookan-4880711a1/'
     },
     {

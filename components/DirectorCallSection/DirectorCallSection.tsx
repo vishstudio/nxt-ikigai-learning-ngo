@@ -5,8 +5,10 @@ import { motion } from 'motion/react';
 import { Button } from '@/components/Button';
 import siteData from '../../data/site-data.json';
 import Image from 'next/image';
+import { useBasePath } from '@/lib/useBasePath';
 
 export function DirectorCallSection() {
+  const basePath = useBasePath();
 
   return (
     <section id="director-call" className="py-32 bg-ikigai-dark text-ikigai-bg relative scroll-mt-20" aria-labelledby="director-call-title">
@@ -58,7 +60,7 @@ export function DirectorCallSection() {
                   className="w-20 h-20 rounded-full overflow-hidden relative border border-ikigai-bg/20 shadow-lg"
                 >
                   <Image
-                    src="/assets/janesh.jpeg"
+                    src={basePath + "/assets/janesh.jpeg"}
                     alt="Janesh Luximan, Executive Director of Ikigai"
                     fill
                     className="object-cover"
@@ -82,7 +84,7 @@ export function DirectorCallSection() {
                   className="w-20 h-20 rounded-full overflow-hidden relative border border-ikigai-bg/20 shadow-lg"
                 >
                   <Image
-                    src="/assets/ayesha.jpeg"
+                    src={basePath + "/assets/ayesha.jpeg"}
                     alt="Co-founder of Ikigai"
                     fill
                     className="object-cover"

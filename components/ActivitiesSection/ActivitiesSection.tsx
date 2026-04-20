@@ -5,14 +5,16 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Button } from '@/components/Button';
 import { Carousel } from '@/components/Carousel';
 import Image from 'next/image';
+import { useBasePath } from '@/lib/useBasePath';
 
 export function ActivitiesSection() {
   const [selectedImage, setSelectedImage] = useState<null | { title: string; image: string; description: string; category: string }>(null);
+  const basePath = useBasePath();
 
   const activities = [
     {
       title: "Interactive Learning Sessions",
-      image: "/assets/interactive-class.jpeg",
+      image: basePath + "/assets/interactive-class.jpeg",
       description: "Our volunteers use engaging and creative teaching methods to make learning enjoyable and meaningful for every student.",
       category: "Education"
     },
