@@ -3,6 +3,8 @@
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import { Button } from '@/components/Button';
+import siteData from '../../data/site-data.json';
+
 
 export function StudentsSection() {
   return (
@@ -26,15 +28,15 @@ export function StudentsSection() {
                 Ikigai exists to support students who face financial hardship and cannot access private tuition. If you&apos;re struggling with schoolwork, behind in class, or need extra guidance, our volunteer teachers provide free, one-on-one and small-group tutoring.
               </p>
               <ul className="list-disc pl-5 space-y-2 text-ikigai-muted">
-                <li>Free tutoring across core subjects (math, English, science)</li>
+                <li>Free tutoring across across core subjects like Maths, English, and Science, as well as other areas such as Public Speaking and Personal Development</li>
                 <li>Flexible schedules: after-school and weekend sessions</li>
                 <li>Mentoring, exam prep, and confidence-building support</li>
               </ul>
             </div>
 
             <div className="flex gap-4">
-              <Button href="#contact" variant="accent">Get Help</Button>
-              <Button href="#volunteers" variant="outlined">Volunteer</Button>
+              <Button href={(siteData as any).phone.href} variant="accent">Book a call</Button>
+              {/* <Button href="#volunteers" variant="outlined">Volunteer</Button> */}
             </div>
           </div>
 

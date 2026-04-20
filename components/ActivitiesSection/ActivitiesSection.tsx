@@ -11,9 +11,9 @@ export function ActivitiesSection() {
 
   const activities = [
     {
-      title: "Interactive Classrooms",
-      image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2132&auto=format&fit=crop",
-      description: "Our volunteers use modern teaching methods to keep students engaged and curious.",
+      title: "Interactive Learning Sessions",
+      image: "/assets/interactive-class.jpeg",
+      description: "Our volunteers use engaging and creative teaching methods to make learning enjoyable and meaningful for every student.",
       category: "Education"
     },
     {
@@ -29,40 +29,10 @@ export function ActivitiesSection() {
       category: "Community"
     },
     {
-      title: "Tech Literacy",
-      image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop",
-      description: "Bridging the digital divide with free access to computers and coding workshops.",
-      category: "Technology"
-    },
-    {
       title: "Health & Wellness",
       image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2040&auto=format&fit=crop",
       description: "Regular health checkups and yoga sessions to ensure physical and mental well-being.",
       category: "Wellness"
-    },
-    {
-      title: "Vocational Training",
-      image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=2070&auto=format&fit=crop",
-      description: "Equipping older students with practical skills for future employment and independence.",
-      category: "Education"
-    },
-    {
-      title: "Science Discovery",
-      image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=2070&auto=format&fit=crop",
-      description: "Hands-on experiments that bring scientific concepts to life for our young learners.",
-      category: "Education"
-    },
-    {
-      title: "Music & Rhythm",
-      image: "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?q=80&w=2070&auto=format&fit=crop",
-      description: "Exploring the power of music to build confidence and foster teamwork.",
-      category: "Arts"
-    },
-    {
-      title: "Coding for Kids",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2069&auto=format&fit=crop",
-      description: "Teaching the language of the future through fun and interactive coding sessions.",
-      category: "Technology"
     },
     {
       title: "Outdoor Sports",
@@ -74,7 +44,7 @@ export function ActivitiesSection() {
 
   return (
     <section id="activities" className="py-32 bg-ikigai-bg scroll-mt-20 overflow-hidden" aria-labelledby="activities-title">
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -90,19 +60,19 @@ export function ActivitiesSection() {
           </div>
         </div>
 
-        <Carousel 
+        <Carousel
           items={activities}
           itemsPerPage={{ mobile: 1, tablet: 3, desktop: 4 }}
           renderItem={(activity) => (
-            <div 
+            <div
               className="group cursor-pointer h-full flex flex-col"
               onClick={() => setSelectedImage(activity)}
             >
               <div className="relative aspect-[4/5] w-full rounded-square-image overflow-hidden mb-6 shadow-lg group-hover:shadow-2xl transition-all duration-500">
-                <Image 
-                  src={activity.image} 
-                  alt={activity.title} 
-                  fill 
+                <Image
+                  src={activity.image}
+                  alt={activity.title}
+                  fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   referrerPolicy="no-referrer"
                 />
@@ -142,7 +112,7 @@ export function ActivitiesSection() {
               className="relative max-w-5xl w-full bg-white rounded-square-image overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
-              <button 
+              <button
                 onClick={() => setSelectedImage(null)}
                 className="absolute top-4 right-4 md:top-6 md:right-6 z-10 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-ikigai-dark hover:bg-ikigai-surface transition-colors"
                 aria-label="Close modal"
@@ -151,10 +121,10 @@ export function ActivitiesSection() {
               </button>
 
               <div className="relative w-full md:w-2/3 h-[250px] sm:h-[350px] md:h-[600px] flex-shrink-0">
-                <Image 
-                  src={selectedImage.image} 
-                  alt={selectedImage.title} 
-                  fill 
+                <Image
+                  src={selectedImage.image}
+                  alt={selectedImage.title}
+                  fill
                   className="object-cover"
                   referrerPolicy="no-referrer"
                 />
@@ -166,7 +136,7 @@ export function ActivitiesSection() {
                 <p className="text-lg text-ikigai-muted font-light leading-relaxed mb-10">
                   {selectedImage.description}
                 </p>
-                <Button 
+                <Button
                   onClick={() => setSelectedImage(null)}
                   variant="outlined"
                   className="w-full"

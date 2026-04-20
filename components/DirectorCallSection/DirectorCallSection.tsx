@@ -31,7 +31,12 @@ export function DirectorCallSection() {
             </p>
 
             <p className="text-lg font-light text-ikigai-bg/70 leading-relaxed mb-6">
-              We aren&apos;t just teaching math or reading; we are providing a safe space where children feel valued, heard, and empowered to dream beyond their circumstances.
+              We aren&apos;t just teaching math or reading; we are providing a safe space where children and teenagers feel valued, heard, and empowered to dream beyond their circumstances.
+            </p>
+
+            <p className="text-lg font-light text-ikigai-bg/70 leading-relaxed mb-12">
+              At Ikigai, we believe that everyone deserves the opportunity to discover their purpose.
+              Inspired by the Japanese concept of “ikigai” — meaning a reason for being — our mission is to guide individuals, especially young people, toward meaningful personal and professional paths.
             </p>
 
             <p className="text-lg font-light text-ikigai-bg/70 leading-relaxed mb-12">
@@ -43,25 +48,51 @@ export function DirectorCallSection() {
               I invite you to a personal conversation. Whether you want to volunteer, donate, or simply learn more about our mission, I want to hear from you. Let&apos;s discuss how we can change lives together.
             </p>
 
-            <div className="flex items-center gap-6">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="w-20 h-20 rounded-full overflow-hidden relative border border-ikigai-bg/20 shadow-lg"
-              >
-                <Image
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop"
-                  alt="Janesh Luximan, Executive Director of Ikigai"
-                  fill
-                  className="object-cover"
-                  referrerPolicy="no-referrer"
-                />
-              </motion.div>
-              <div>
-                <p className="font-serif text-3xl text-ikigai-bg">Janesh Luximan</p>
-                <p className="text-xs text-ikigai-accent uppercase tracking-[0.2em] mt-1">Executive Director</p>
+            <div className="flex flex-wrap items-center gap-8">
+              <div className="flex items-center gap-6">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="w-20 h-20 rounded-full overflow-hidden relative border border-ikigai-bg/20 shadow-lg"
+                >
+                  <Image
+                    src="/assets/janesh.jpeg"
+                    alt="Janesh Luximan, Executive Director of Ikigai"
+                    fill
+                    className="object-cover"
+                    referrerPolicy="no-referrer"
+                  />
+                </motion.div>
+                <div>
+                  <p className="font-serif text-3xl text-ikigai-bg">Janesh Luximan</p>
+                  <p className="text-xs text-ikigai-accent uppercase tracking-[0.2em] mt-1">Founder</p>
+                </div>
+              </div>
+
+              <div className="w-px h-14 bg-ikigai-bg/20 hidden sm:block" />
+
+              <div className="flex items-center gap-6">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
+                  className="w-20 h-20 rounded-full overflow-hidden relative border border-ikigai-bg/20 shadow-lg"
+                >
+                  <Image
+                    src="/assets/ayesha.jpeg"
+                    alt="Co-founder of Ikigai"
+                    fill
+                    className="object-cover"
+                    referrerPolicy="no-referrer"
+                  />
+                </motion.div>
+                <div>
+                  <p className="font-serif text-3xl text-ikigai-bg">Ayesha Bhudookan</p>
+                  <p className="text-xs text-ikigai-accent uppercase tracking-[0.2em] mt-1">Co-Founder</p>
+                </div>
               </div>
             </div>
           </div>
@@ -74,7 +105,7 @@ export function DirectorCallSection() {
 
             <h3 className="text-3xl font-serif mb-4">Book a Discovery Call</h3>
             <p className="text-ikigai-muted font-light mb-10 leading-relaxed">
-              Schedule a 15-minute conversation directly with Janesh to explore partnership and volunteer opportunities.
+              Schedule a 15-minute conversation directly directly with Ikigai members to explore partnership and volunteer opportunities.
             </p>
 
             <div className="space-y-6">

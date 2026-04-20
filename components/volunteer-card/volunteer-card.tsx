@@ -3,8 +3,8 @@ import Image from 'next/image';
 
 interface Props {
   name: string;
-  role: string;
-  img: string;
+  role?: string;
+  img?: string;
   href?: string;
   index?: number;
   className?: string;
@@ -26,9 +26,13 @@ const VolunteerCard: React.FC<Props> = ({ name, role, img, href = '#', index = 0
         aria-label={`View ${name} profile`}
         className="block"
       >
-        <div className="bg-ikigai-bg/95 border border-ikigai-dark/10 p-3 rounded-2xl shadow-sm flex items-center gap-4 group hover:border-ikigai-accent transition-colors duration-800 ease-in-out">
+        <div className="bg-ikigai-bg/95 border border-ikigai-dark/10 p-3 rounded-2xl shadow-sm flex items-center gap-4 group hover:border-ikigai-accent transition-colors duration-800 ease-in-out min-h-20">
           <div className="w-14 h-14 rounded-full overflow-hidden flex-shrink-0">
-            <Image src={img} alt={name} width={56} height={56} className="object-cover" referrerPolicy="no-referrer" />
+            {img ? (
+              <Image src={img} alt={name} width={56} height={56} className="object-cover" referrerPolicy="no-referrer" />
+            ) : (
+              <div className="w-full h-full bg-ikigai-dark/10" />
+            )}
           </div>
 
           <div>

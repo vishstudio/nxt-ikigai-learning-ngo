@@ -7,22 +7,27 @@ import { Carousel } from '@/components/Carousel';
 export function VolunteersSection() {
   const volunteers = [
     {
-      name: 'Aisha Kumar',
-      role: 'Math Tutor',
-      bio: 'Leads weekly math clubs for primary students, focusing on confidence-building and problem solving.',
-      img: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=1000&auto=format&fit=crop'
+      name: 'Charvi Sookha',
+      img: '/assets/charvi.jpeg',
+      href: 'https://www.linkedin.com/in/charvi-sookha-32206a332/'
     },
     {
-      name: 'Ravi Patel',
-      role: 'English & Literacy Coach',
-      bio: 'Works on reading programmes and after-school reading circles to boost literacy.',
-      img: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1000&auto=format&fit=crop'
+      name: 'Janesh Luximan',
+      img: '/assets/janesh.jpeg',
+      href: 'https://www.linkedin.com/in/janesh-luximan/'
     },
     {
-      name: 'Maya Fernandez',
-      role: 'Creative Arts Teacher',
-      bio: 'Runs art and theatre activities that help students express themselves and build social skills.',
-      img: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1000&auto=format&fit=crop'
+      name: 'Ayesha Bhudookan',
+      img: '/assets/ayesha.jpeg',
+      href: 'https://www.linkedin.com/in/ayesha-bhudookan-4880711a1/'
+    },
+    {
+      name: 'Chitra Gomanee',
+      href: 'https://www.linkedin.com/in/chitra-gomanee-901508158?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app '
+    },
+    {
+      name: 'Chounee Dussaram',
+      href: '#'
     },
   ];
 
@@ -38,7 +43,10 @@ export function VolunteersSection() {
         <div className="text-center mb-20">
           <span className="uppercase tracking-[0.2em] text-xs font-bold text-ikigai-accent mb-6 block">Our People</span>
           <h2 id="volunteers-title" className="text-5xl md:text-6xl font-serif text-ikigai-dark">Volunteers & Teachers</h2>
-          <p className="text-ikigai-muted font-light mt-6 max-w-2xl mx-auto">Our programmes are supported by talented volunteers and teachers who give their time and skills to help students learn, grow and thrive.</p>
+          <p className="text-ikigai-muted font-light mt-6 max-w-2xl mx-auto">
+            Our programmes are supported by talented volunteers and teachers who give their time and skills to help students learn, grow and thrive. <br />
+            Here are some of our volunteers.
+          </p>
         </div>
 
         {/* Carousel for mobile & tablet */}
@@ -48,7 +56,7 @@ export function VolunteersSection() {
             itemsPerPage={{ mobile: 1, tablet: 3, desktop: 3 }}
             renderItem={(v: any, i: number) => (
               <div className="px-2">
-                <VolunteerCard key={v.name} index={i} name={v.name} role={v.role} img={v.img} />
+                <VolunteerCard key={v.name} index={i} name={v.name} role={v.role} img={v.img} href={v.href} />
               </div>
             )}
           />
@@ -57,10 +65,10 @@ export function VolunteersSection() {
         {/* Grid for desktop */}
         <div className="hidden lg:grid grid-cols-3 gap-6">
           {volunteers.map((v, i) => (
-            <VolunteerCard key={v.name} index={i} name={v.name} role={v.role} img={v.img} />
+            <VolunteerCard key={v.name} index={i} name={v.name} img={v.img} href={v.href} />
           ))}
         </div>
       </motion.div>
-    </section>
+    </section >
   );
 }
