@@ -1,27 +1,48 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 /**
- * Hook to get the base path for assets at runtime
- * Returns the basePath from Next.js config, which is set during GitHub Pages deployment
+ * Hook to safely get the base path for assets
+ * Avoids hydration issues by deferring to client-side only with useEffect
  */
 export function useBasePath(): string {
-  if (typeof window === "undefined") {
-    return "";
-  }
+  const [basePath, setBasePath] = useState<string>("");
 
-  // Access the basePath from Next.js's internal data
-  const basePath = (window as any).__NEXT_DATA__?.basePath || "";
+  useEffect(() => {
+    try {
+      // Method 1: Try to get from Next.js internal data
+      const nextBasePath = (window as any).__NEXT_DATA__?.basePath;
+      if (nextBasePath) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setBasePath(nextBasePath);
+        return;
+      }
+
+      // Method 2: Infer from current pathname
+      // If we're on GitHub Pages, the pathname will start with /nxt-ikigai-learning-ngo/
+      const pathname = window.location.pathname;
+      if (pathname.startsWith("/nxt-ikigai-learning-ngo/")) {
+        setBasePath("/nxt-ikigai-learning-ngo");
+        return;
+      }
+
+      // Default: no basePath (running locally)
+      setBasePath("");
+    } catch (error) {
+      console.warn("Failed to determine basePath:", error);
+      setBasePath("");
+    }
+  }, []);
+
   return basePath;
 }
 
 /**
  * Utility function to prefix an asset path with the basePath
- * Handles both local paths (/assets/*) and external URLs
- * @param path - The asset path (should start with / for local assets)
- * @returns The path prefixed with basePath if it exists
+ * Use this in non-client contexts
  */
 export function withBasePath(path: string): string {
-  // Don't prefix external URLs (http://, https://, //)
   if (
     path.startsWith("http://") ||
     path.startsWith("https://") ||
@@ -30,11 +51,20 @@ export function withBasePath(path: string): string {
     return path;
   }
 
-  // For client-side runtime, access the basePath from Next.js
   if (typeof window !== "undefined") {
-    const basePath = (window as any).__NEXT_DATA__?.basePath || "";
-    if (basePath && path.startsWith("/")) {
-      return basePath + path;
+    try {
+      // Try Next.js internal data first
+      const basePath = (window as any).__NEXT_DATA__?.basePath;
+      if (basePath && path.startsWith("/")) {
+        return basePath + path;
+      }
+
+      // Fall back to pathname-based detection
+      if (window.location.pathname.startsWith("/nxt-ikigai-learning-ngo/")) {
+        return "/nxt-ikigai-learning-ngo" + path;
+      }
+    } catch (error) {
+      // Silently fail
     }
   }
 
@@ -42,12 +72,9 @@ export function withBasePath(path: string): string {
 }
 
 /**
- * Server-side utility to get basePath from environment
- * Should be used in server components or during static generation
+ * Get the basePath at build/server time (for server components)
  */
 export function getBasePath(): string {
-  // During build time in GitHub Actions, GITHUB_ACTIONS will be set
-  // and basePath will be /${repo}
   const isGithubActions = process.env.GITHUB_ACTIONS || false;
   const repo = "nxt-ikigai-learning-ngo";
   return isGithubActions ? `/${repo}` : "";

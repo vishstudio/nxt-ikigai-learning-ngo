@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from 'motion/react';
+import { useMemo } from 'react';
 import VolunteerCard from '../volunteer-card/volunteer-card';
 import { Carousel } from '@/components/Carousel';
 import { useBasePath } from '@/lib/useBasePath';
@@ -8,7 +9,7 @@ import { useBasePath } from '@/lib/useBasePath';
 export function VolunteersSection() {
   const basePath = useBasePath();
 
-  const volunteers = [
+  const volunteers = useMemo(() => [
     {
       name: 'Charvi Sookha',
       img: basePath + '/assets/charvi.jpeg',
@@ -32,7 +33,7 @@ export function VolunteersSection() {
       name: 'Chounee Dussaram',
       href: '#'
     },
-  ];
+  ], [basePath]);
 
   return (
     <section id="volunteers" className="py-32 scroll-mt-20" aria-labelledby="volunteers-title" style={{ backgroundColor: '#f0efea' }}>

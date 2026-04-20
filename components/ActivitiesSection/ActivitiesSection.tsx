@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Button } from '@/components/Button';
 import { Carousel } from '@/components/Carousel';
@@ -11,7 +11,7 @@ export function ActivitiesSection() {
   const [selectedImage, setSelectedImage] = useState<null | { title: string; image: string; description: string; category: string }>(null);
   const basePath = useBasePath();
 
-  const activities = [
+  const activities = useMemo(() => [
     {
       title: "Interactive Learning Sessions",
       image: basePath + "/assets/interactive-class.jpeg",
@@ -42,7 +42,7 @@ export function ActivitiesSection() {
       description: "Building character and physical health through organized team sports and play.",
       category: "Wellness"
     }
-  ];
+  ], [basePath]);
 
   return (
     <section id="activities" className="py-32 bg-ikigai-bg scroll-mt-20 overflow-hidden" aria-labelledby="activities-title">
