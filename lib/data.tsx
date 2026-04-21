@@ -73,7 +73,7 @@ export const impactStats = [
 export const faqs = [
   {
     question: "How can I partner with or sponsor Ikigai?",
-    answer: "We welcome partnerships with corporations, foundations, and individuals who share our vision. The best way to explore partnership opportunities is to book a call with Ikigai members. We can discuss… (this part is okay)We can discuss tailored sponsorship packages, employee volunteering programs, or direct funding initiatives."
+    answer: "We welcome partnerships with corporations, foundations, and individuals who share our vision. The best way to explore partnership opportunities is to book a call with Ikigai members. We can discuss tailored sponsorship packages, employee volunteering programs, or direct funding initiatives."
   },
   {
     question: "Is the education provided truly free?",

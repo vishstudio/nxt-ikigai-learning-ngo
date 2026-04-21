@@ -107,7 +107,7 @@ export function DirectorCallSection() {
 
             <h3 className="text-3xl font-serif mb-4">Book a Discovery Call</h3>
             <p className="text-ikigai-muted font-light mb-10 leading-relaxed">
-              Schedule a 15-minute conversation directly directly with Ikigai members to explore partnership and volunteer opportunities.
+              Schedule a 15-minute conversation directly with Ikigai members to explore partnership and volunteer opportunities.
             </p>
 
             <div className="space-y-6">
