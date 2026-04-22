@@ -31,7 +31,9 @@ const VolunteerCard: React.FC<Props> = ({ name, role, img, href = '#', index = 0
             {img ? (
               <Image src={img} alt={name} width={56} height={56} className="object-cover" referrerPolicy="no-referrer" />
             ) : (
-              <div className="w-full h-full bg-ikigai-dark/10" />
+              <div className="flex justify-center items-center w-full h-full bg-[#f0efea]" >
+                <span className="material-symbols-outlined text-3xl text-ikigai-dark flex items-center justify-center ">person</span>
+              </div>
             )}
           </div>
 

@@ -25,7 +25,7 @@ export function StudentsSection() {
 
             <div className="space-y-6 text-lg text-ikigai-muted font-light leading-relaxed mb-8">
               <p>
-                Ikigai exists to support students who face financial hardship and cannot access private tuition. If you&apos;re struggling with schoolwork, behind in class, or need extra guidance, our volunteer teachers provide free, one-on-one and small-group tutoring.
+                Ikigai exists to support students who face financial hardship and cannot access private tuition. If you&apos;re struggling with schoolwork, falling behind in class, or need extra guidance, our volunteer teachers provide free, one-on-one and small-group tutoring.
               </p>
               <ul className="list-disc pl-5 space-y-2 text-ikigai-muted">
                 <li>Free tutoring across across core subjects like Maths, English, and Science, as well as other areas such as Public Speaking and Personal Development</li>
