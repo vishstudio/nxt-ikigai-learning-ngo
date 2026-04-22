@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   output: "export",
   trailingSlash: true,
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH || "",
   reactStrictMode: true,
   eslint: {
     ignoreDuringBuilds: true,
@@ -29,7 +30,6 @@ const nextConfig: NextConfig = {
     ],
   },
   webpack: (config, { dev }) => {
-    // HMR is disabled in AI Studio via DISABLE_HMR env var.
     // Do not modify—file watching is disabled to prevent flickering during agent edits.
     if (dev && process.env.DISABLE_HMR === "true") {
       config.watchOptions = {
