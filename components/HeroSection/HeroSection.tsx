@@ -111,7 +111,15 @@ export function HeroSection() {
             variants={imageRevealVariants}
             initial="hidden"
             animate="visible"
-            className="relative h-[500px] md:h-[70vh] w-full arch-image overflow-hidden group"
+            className="relative h-[500px] md:h-[70vh] w-full overflow-hidden group"
+            style={{
+              borderTopLeftRadius: '1000px',
+              borderTopRightRadius: '1000px',
+              borderBottomLeftRadius: '1rem',
+              borderBottomRightRadius: '1rem',
+              willChange: 'transform',
+              WebkitMaskImage: '-webkit-radial-gradient(white, white)',
+            }}
           >
             <motion.div style={{ y, scale }} className="absolute inset-0 w-full h-full">
               <Image
@@ -124,7 +132,12 @@ export function HeroSection() {
               />
             </motion.div>
 
-            <div className="absolute inset-0 bg-ikigai-dark/5 mix-blend-multiply pointer-events-none"></div>
+            <div className="absolute inset-0 bg-ikigai-dark/5 mix-blend-multiply pointer-events-none" style={{
+              borderTopLeftRadius: '1000px',
+              borderTopRightRadius: '1000px',
+              borderBottomLeftRadius: '1rem',
+              borderBottomRightRadius: '1rem',
+            }}></div>
 
             <div className="absolute bottom-0 left-0 right-0 p-[1.5rem] bg-black/60 text-white z-10 hidden xl:block">
               <p className="text-2xl font-serif italic">&quot;Education is the most powerful weapon which you can use to change the world.&quot;</p>
