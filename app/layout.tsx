@@ -27,6 +27,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" rel="stylesheet" />
+
+        <link rel="icon" href="/assets/logo.jpeg" />
       </head>
       <body className="font-sans bg-ikigai-bg text-ikigai-dark antialiased overflow-x-clip selection:bg-ikigai-accent/20 selection:text-ikigai-dark">
         {children}
